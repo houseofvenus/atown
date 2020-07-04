@@ -1,6 +1,6 @@
 # ATOWN | v. 0.1.0.16
 
-## The immersive web browser
+## a framework for building semantic webs; designed to introduce concepts in Hyper-Reality
 
 ### Author(s)
 #### Patrice-Morgan Ongoly [@starmaker2130](https://github.com/starmaker2130)
@@ -17,11 +17,9 @@
 
 ### Background
 
-ATOWN is a framework for building semantic webs. It is designed to make exploring concepts in Hyperreality more accessible.
-
 In ATOWN, any observable process, or entity, can be reduced to four essential component types. Using these types, an observer can deconstruct any process or entity using other processes and/or entities. Thus each one forms a node on a distributed network of processes/entities whose behaviors and functionality can be described using their respective connections to other nodes within this disrributed hierarchy. 
 
-In the Public Augmented Reality Kinectome (pARk), our serialization of ATOWN for web content, resources are addressed by the semantic value of their content rather than the physical location address of said content on the network. The primary advantages of this system for web development are that any web page can be built from other web pages -- UI, functionality, and all -- and that content is not hosted on a single machine but available instantly to all members of the network.
+In the Public Augmented Reality Kinectome (pARk), our [serialization](https://github.com/houseofvenus/pARk) of ATOWN, resources are addressed by the semantic value of their content rather than the physical location address of said content on the network. The primary advantages of this system for web development are that any web page can be built intuitively from other web pages. You can design a site in the abstract using natural words, phrases, and motions to duplicate or adapt code from other web pages for your own. The distributed ledger technology hosting all of the pARk content, spreads access across the network, using peer to peer protocols to host content and avoid a sinlge point of failure while also removing redundancies.
 
 ### ATOWN Types
 
