@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html, #main-app-container{
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#post-array-container{
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    width: 500px;
+    height: 100%;
+    display: block;
+    z-index: 5;
+}
+
+.post-in-focus-container{
+    position: relative;
+    width: 100%;
+    height: 375px;
+    border-radius: 10px;
+    overflow: scroll;
+}
+
+.post-line-container{
+    display: block;
+    width: 80%;
+    margin: 2% auto;
+}
+
+.post-preview-container{
+    width: 100%;
+    height: 175px;/*225px;*/
+    cursor: pointer;
+}
+
+.book-content-container{
+    position:absolute;
+    right: 0;
+}
+
+.book-cover-container{
+    width: 400px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#joshua-cover-container{
+    background-image: url(../media/img/Dore_joshua_crossing.png);
+}
