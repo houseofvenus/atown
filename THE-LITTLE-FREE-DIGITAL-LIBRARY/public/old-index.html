@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Little Free Digital Library</title>
+    <link rel="stylesheet" type="text/css" href="./css/lobby.css" />
+    <!--<script src="./js/aframe1.3.0.min.js"></script>-->
+    <script>
+        //document.getElementById("");
+        
+        function $(idName){
+            var elem = document.getElementById(`${idName}`);
+            return elem;
+        }
+        
+        document.addEventListener("DOMContentLoaded", function(){   //main method   fog stats
+            console.log("v 4.1");
+        /*    setTimeout(function(){
+                $("main-scene-container").classList.remove("hidden-scene");
+            }, 5000);*/
+        });
+    </script>
+</head>
+<body>
+    <div id="main-app-container">
+        <div id="header-container">
+            <div id="desktop-left-header-container">
+                <div id="library-icon-container">
+                </div>
+                <div id="library-title-container">
+                    The Little Free <span id="digital-highlight">Digital</span> Library
+                </div>
+                <div id="library-subtitle-container">
+                    The World is Your Desktop
+                </div>
+            </div>
+            <div id="desktop-right-header-container">
+                <input id="literature-option-button-container" class="option-button-container" type="button" value="Read"/>
+                <input id="cinema-option-button-container" class="option-button-container" type="button" value="Watch">
+                <input id="explore-option-button-container" class="option-button-container" type="button" value="Explore" />
+            </div>
+        </div>
+        <div id="main-body-container">
+            <div id="main-photo-container"></div>
+            <div id="action-button-container">
+                <button id="order-button-container" class="">
+                    <div>Order</div>
+                    <div>Copies of your favs</div>
+                </button>
+                <button id="borrow-button-container" class="">
+                    <div>Borrow</div>
+                    <div>Recs from other LFLs</div>
+                </button>
+                <button id="replace-button-container" class="">
+                    <div>Replace</div>
+                    <div>Damage or lost books</div>
+                </button>
+                <button id="browse-button-container" class="">
+                    <div>Browse</div>
+                    <div>Films, shows, scripts, etc.</div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--<a-scene id="main-scene-container" embedded class="hidden-scene">
+        <a-assets timeout="60000">
+            <img id="earth-texture" src="./media/img/earth-texture.png" />
+            <img id="starry-sky-texture" src="./media/img/starry-sky-texture.avif" />
+
+        </a-assets>
+
+        <a-sphere id="planet-earth-body-object-subject-container"
+                position="0 1.25 -160"
+                radius="64"
+                rotation="0 0 0"
+                material="src: #earth-texture; side: double;"
+                animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 96000; easing: linear; pauseEvents: pauseInitialEarthRotation;">
+        </a-sphere>
+        
+        <a-sky id="sky-container" src="#starry-sky-texture"></a-sky>
+    </a-scene>-->
+</body>
+</html>
