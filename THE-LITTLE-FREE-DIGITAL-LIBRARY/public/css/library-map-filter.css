@@ -1,0 +1,508 @@
+.header-container{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header-icon-container{
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 5% auto;
+    border-radius: 50%;
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+#joes-club-header-icon-container{
+    background-image: url(../media/img/md-heart-icon.png);
+}
+
+#pm-library-header-icon-container{
+    background-image: url(../media/img/pm-library-icon.png)
+}
+
+#kt-library-header-icon-container{
+    background-image: url(../media/img/katie-library.JPG);
+    background-size: cover;
+}
+
+#mcdonalds-header-icon-container{
+    background-image: url(../media/img/mcdonalds-icon.png);
+}
+
+#seven-11-header-icon-container{
+    background-image: url(../media/img/7-eleven-icon.png);
+}
+
+#chik-fil-a-header-icon-container{
+    background-image: url(../media/img/chik-fil-a-icon.png);
+}
+
+#harvard-st-library-header-icon-container{
+    background-image: url(../media/img/pong-logo.png);
+}
+
+#because-of-sex-book-option-container{
+    background-image: url(../media/img/because-of-sex-book-cover.png);
+}
+
+#the-house-of-scorpion-book-option-container{
+    background-image: url(../media/img/house-of-the-scorpion-book-cover.png);
+}
+
+#the-nazi-seizure-of-power-book-option-container{
+    background-image: url(../media/img/the-nazi-seizure-of-power-book-cover.png);
+}
+
+#from-farmland-to-streetlevel-book-0-option-container, #from-farmland-to-streetlevel-book-1-option-container{
+    background-image: url(../media/img/from-farmland-to-streetlevel-book-cover.png);
+}
+
+#the-book-of-forgiving-book-option-container{
+    background-image: url(../media/img/the-book-of-forgiving-book-cover.png);
+}
+
+#l4yer-cake-book-option-container{
+    background-image: url(../media/img/l4yer-cake-book-cover.png);
+}
+
+
+#dragons-heart-book-option-container{
+    background-image: url(../media/img/dragons-heart-book-cover.png);
+}
+
+#father-of-the-bride-book-option-container{
+    background-image: url(../media/img/father-of-the-bride-book-cover.png);
+}
+
+#key-west-connection-book-option-container{
+    background-image: url(../media/img/key-west-connection-book-cover.webp);
+}
+
+#critique-of-pure-reason-book-option-container{
+    background-image: url(../media/img/critique-of-pure-reason-book-cover.jpeg);
+}
+
+#time-and-the-other-book-option-container{
+    background-image: url(../media/img/time-and-the-other-book-cover.jpg);
+}
+
+#stop-dressing-your-six-year-old-like-a-skank-book-option-container{
+    background-image: url(../media/img/stop-dressing-your-six-year-old-like-a-skank-book-cover.jpg);
+}
+
+#on-the-plurality-of-worlds-book-option-container{
+    background-image: url(../media/img/on-the-plurality-of-worlds-book-cover.png);
+}
+
+#a-history-of-the-modern-middle-east-book-option-container{
+    background-image: url(../media/img/a-history-of-the-modern-middle-east-book-cover.png);
+}
+
+#total-immersion-book-option-container{
+    background-image: url(../media/img/total-immersion-book-cover.png);
+}
+
+#the-theatre-of-the-absurd-book-option-container{
+    background-image: url(../media/img/the-theatre-of-the-absurd-book-cover.png);
+}
+
+.book-option-button-container{
+    background-size: auto 80%;
+    display: inline-block;
+    margin-bottom: 35px;
+    height: 150px;
+    width: max(49%, 100px);
+    border: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0);
+    background-repeat: no-repeat;
+    transition: background-size 0.25s;
+
+}
+
+.book-option-button-container:hover{
+    background-size: auto 105%;
+}
+
+.option-button-container{
+    display: inline-block;
+    margin-bottom: 35px;
+    height: 100px;
+    width: max(49%, 100px);
+    border: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0);
+    background-repeat: no-repeat;
+    transition: background-size 0.25s;
+}
+
+#hash-brown-option-container{
+    background-image: url(../media/img/hash-brown.png);
+    background-size: auto 60%;
+}
+
+#hash-brown-option-container:hover{
+    background-size: auto 100%;
+}
+
+#ketchup-option-container{
+    background-image: url(../media/img/ketchup-container.png);
+    background-size: auto 70%;
+}
+
+.view-digital-book-button-container{
+    border: 0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: max(90%, 150px);
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: blue;
+    color: yellow;
+    text-transform: uppercase;
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.view-digital-book-button-container:hover{
+    background-color: red;
+    color: white;
+}
+
+.add-item-to-order-queue-button-container{
+    border: 0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: max(90%, 150px);
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: aquamarine;
+    color: black;
+    text-transform: uppercase;
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.add-item-to-order-queue-button-container:hover{
+    background-color: red;
+    color: white;
+}
+
+#ketchup-option-container:hover{
+    background-size: auto 100%;
+}
+
+#tampons-option-container{
+    background-image: url(../media/img/tampax.png);
+    background-size: auto 50%;
+}
+
+#tampons-option-container:hover{
+    background-size: auto 100%;
+}
+
+#condoms-option-container{
+    background-image: url(../media/img/magnum-condoms.png);
+    background-size: auto 60%;
+}
+
+#condoms-option-container:hover{
+    background-size: auto 100%;
+}
+
+#chicken-nuggets-option-container{
+    background-image: url(../media/img/chicken-nuggets.png);
+    background-size: auto 105%;
+}
+
+#chicken-nuggets-option-container:hover{
+    background-size: auto 135%;
+}
+
+#chik-fil-a-sauce-option-container{
+    background-image: url(../media/img/chik-fil-a-sauce.png);
+    background-size: auto 70%;
+}
+
+#chik-fil-a-sauce-option-container:hover{
+    background-size: auto 100%;
+}
+
+#member-options-container{
+    font-family: "Braah One", sans-serif;
+    position: absolute;
+    z-index: 999;
+    width: 250px;
+    height: 175px;
+    border: 0;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    cursor: pointer;
+    bottom: 3%;
+    right: 3%;
+    overflow-y: scroll;
+}
+
+#martins-bbq-chips-option-container{
+    background-image: url(../media/img/martins-bbq-chips-icon.webp);
+    background-size: auto 70%;
+}
+
+#martins-bbq-chips-option-container:hover{
+    background-size: auto 100%;
+}
+
+#martins-sea-salted-chips-option-container{
+    background-image: url(../media/img/martins-sea-salted-chips-icon.webp);
+    background-size: auto 70%;
+}
+
+#martins-sea-salted-chips-option-container:hover{
+    background-size: auto 100%;
+}
+
+#natty-boh-0-option-container, #natty-boh-1-option-container{
+    background-image: url(../media/img/natty-boh-icon.png);
+    background-size: auto 90%;
+}
+
+#natty-boh-0-option-container:hover, #natty-boh-1-option-container:hover{
+    background-size: auto 120%;
+}
+
+#pbr-0-option-container, #pbr-1-option-container{
+    background-image: url(../media/img/pbr-icon.avif);
+    background-size: auto 90%;
+}
+
+#pbr-0-option-container:hover, #pbr-1-option-container:hover{
+    background-size: auto 120%;
+}
+
+#table-tennis-balls-option-container{
+    background-image: url(../media/img/table-tennis-balls.png);
+    background-size: auto 70%;
+}
+
+#table-tennis-balls-option-container:hover{
+    background-size: auto 100%;
+}
+
+.popup-description-container{
+    line-height: 22px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 12px auto;
+}
+
+.library-catalog-container, #pm-library-catalog-container{
+    width: 300px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.return-book-button-container{
+    border: 0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: max(90%, 150px);
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: salmon;
+    color: black;
+    text-transform: uppercase;
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.return-book-button-container:hover{
+    background-color: red;
+    color: white;
+}
+
+.library-action-module-container{
+    font-family: "Braah One", sans-serif;
+    z-index: 1000;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    margin: -250px 0 0 -250px;
+    width: 500px;
+    height: 525px;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    cursor: pointer;
+    border: 0;
+    border-radius: 10px;
+}
+
+#return-book-header-container{
+    font-size: 24px;
+    width: 100%;
+    line-height: 50px;
+    height: auto;
+    text-align: center
+}
+
+.return-book-text-container{
+    font-size: 18px;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+#return-book-cover-container{
+    display: block;
+    width: 150px;
+    height: 225px;
+    margin: 10px auto;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: width 0.25s, height 0.25s;
+}
+
+#return-book-cover-container:hover{
+    width: 175px;
+    height: 250px;
+}
+
+#return-book-title-container{
+    width: 100%;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+}
+
+#return-book-owner-container{
+    width: 89%;
+    margin-left: 9%;
+    line-height: 35px;
+    text-align: left;
+}
+
+#success-container{
+    position: absolute;
+    border: 0;
+    border-radius: 5px;
+    margin: -150px 0 0 -150px;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    display: none;
+    background-color: white;
+    color: black;
+    z-index: 1000;
+}
+
+#success-icon-container{
+    width: 225px;
+    height: 225px;
+    background-image: url(../media/img/success.png);
+    background-size: cover;
+    display: block;
+    margin: 10px auto;
+}
+
+#success-text-container{
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+    line-height: 25px;
+    font-family: "Braah One", sans-serif;
+}
+
+#return-to-map-button-container, #start-book-return-button-container{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    border: 0;
+    border-radius: 0 0 5px 5px;
+    cursor: pointer;
+}
+
+#return-to-map-button-container:hover, #start-book-return-button-container:hover{
+    font-size: 24px;
+}
+        
+@media only screen and (max-width: 640px){
+    #return-book-header-container {
+        margin-top: 50px;
+    }
+
+    .library-action-module-container{
+        top: 0;
+        left: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #return-to-map-button-container{
+
+    }
+
+    .header-container{
+        height: auto;
+    }
+
+    #member-options-container{
+        width: calc(100% - 60px);
+        height: 75px;
+        bottom: 0;
+        right: 0;
+        /*font-family: "Braah One", sans-serif;
+        position: absolute;
+        z-index: 999;
+        border: 0;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        cursor: pointer;
+        overflow-y: scroll;*/
+    }
+
+    .leaflet-popup-content-wrapper{
+        width: 250px;
+    }
+
+    .book-option-button-container {
+        width: 100%;
+        margin-bottom: 0;
+        height: 200px;
+    }
+    
+    
+    .library-catalog-container, #pm-library-catalog-container{
+        width: 200px;
+        height: 300px;
+        overflow-y: scroll;
+    }
+}

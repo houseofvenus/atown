@@ -1,0 +1,304 @@
+@font-face{
+    font-family:"AuraRegular W05 Regular";
+    src: url("../css/Fonts/d83d08da-5e79-48df-a9b1-6f5acf78cb00.eot?#iefix");
+    src: url("../css/Fonts/d83d08da-5e79-48df-a9b1-6f5acf78cb00.eot?#iefix") format("eot"),url("../css/Fonts/92d5ad9f-b979-4d9b-8608-e7bef993c281.woff2") format("woff2"),url("../css/Fonts/48665d19-aff2-4022-aa29-5f4afa40c8af.woff") format("woff"),url("../css/Fonts/27cf9724-1c32-4032-b145-f082ef3ddb21.ttf") format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html{
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+
+.canvasbox {
+    position: absolute;
+    display: block;
+    top: 5%;
+    left: 5%;
+    margin: 0;
+    border-radius: 3px;
+    width: 90%;
+    height: 90%;
+    border-bottom: 3px solid #0063FF;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 #00000030;
+    z-index: 5;
+}
+
+#main-scene-container{
+  position: absolute;
+  display: block;
+  height: 480px;
+  width: 640px;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  margin: -240px 0 0 -320px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+#main-scene-header-container{
+  font-family: "AuraRegular W05 Regular", Fallback, sans-serif;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 30px;
+}
+
+#lyoko-video-container{
+  /*display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 640px;
+  height: 480px;
+  margin: -240px 0 0 -320px;
+  z-index: 1;
+  border-radius: 10px;*/
+    margin: 0;
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh !important;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.mb10 {
+    margin-bottom: 10px
+}
+
+.mt10 {
+    margin-top: 10px
+}
+
+#toggle-handtracking-button-container{
+    display: block;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    margin-top: 38px;
+    border: 2px solid black;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    width: 75px;
+    height: 75px;
+    background-image: url(../media/img/left-hand-icon.png);
+    background-size: 80% 80%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 50;
+    opacity: 0.5;
+    transition: opacity 0.25s;
+}
+
+#toggle-handtracking-button-container:hover{
+    opacity: 1.0;
+}
+
+#inventory-icon-container{
+    background-size: 80% 80%;
+    background-image: url(../media/img/white-design-icon.png);
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.select-card-menu-button-container{
+    position: absolute;
+    display: block;
+    top: 50%;
+    width: 75px;
+    height: 75px;
+    margin-top: -38px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    opacity: 1 .0;
+    transition: opacity 1.0s;
+    z-index: 999;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+.select-card-menu-button-container:hover{
+    background-color: black;
+    color: white;
+    border: 2px solid white !important;
+}
+
+#toggle-audio-playback-button-container{
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-image: url(../media/img/right-hand-icon.png);
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px black solid;
+    opacity: 0.3;
+    transition: opacity 0.25s;
+}
+
+#toggle-audio-playback-button-container:hover{
+    opacity: 1.0;
+}
+
+#select-previous-item-button-container, #select-previous-exhibit-menu-button-container{
+    left: 5%;
+    border: 2px black solid;
+}
+
+#select-next-item-button-container, #select-next-exhibit-menu-button-container{
+    right: 5%;
+    border: 2px black solid;
+}
+
+#back-button-container{
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  border-radius: 50%;
+  margin-left: -38px;
+  width: 75px;
+  height: 75px;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  font-weight: 900;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 50;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+#back-button-container:hover{
+  background-color: rgba(255, 0, 0, 1.0);
+  color: black;
+}
+
+#return-to-experience-lobby-button-container{ /* potential redundant overlap in some markup files; this id is also listed in "grocery-storefront.css" */
+    background-image: url(../media/img/eye-icon.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    z-index: 999;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: 50%;
+    outline: none;
+}
+
+#success-container{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    margin: -125px 0 0 -125px;
+    border-radius: 15px 15px 0 0;
+    cursor: pointer;
+    z-index: 500;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: white;
+    color: black;
+}
+
+#success-icon-container{
+    background-size: 77% 100%;
+    background-image: url(../media/img/success.png);
+    width: 225px;
+    height: 225px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 12px auto;
+    display: block;
+    position: relative;
+}
+
+#success-label-container{
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 0 0 15px 15px;
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+    .select-card-menu-button-container{
+      top: auto;
+      bottom: 5%;
+    }
+
+    #toggle-audio-playback-button-container{
+      top: 50%;
+    }
+
+    #toggle-handtracking-button-container{
+      top: 5%;
+      display: none;
+    }
+
+    #main-scene-container{
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0);
+    }
+
+    #lyoko-video-container{
+      margin: 0;
+      border-radius: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9;
+    }
+
+    #back-button-container{
+      z-index: 10;
+    }
+}

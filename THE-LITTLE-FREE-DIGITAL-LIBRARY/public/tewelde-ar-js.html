@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./media/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./media/icon/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
+    <title>Tewelde's Immersive Experience | 0.1.a</title>
+    <script src="./js/aframe1.4.0.min.js"></script>
+    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
+    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
+</head>
+<body>
+    <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
+        <a-assets>
+            <img id="AcousticandSeismicSensing" src="./media/img/Acoustic.png">
+        </a-assets>
+        <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
+       <!-- <a-entity material='color: red' geometry='primitive: box' gps-new-entity-place="latitude: 38.9299239; longitude: -77.0375728" scale="5 5 5"></a-entity>-->
+        
+        <a-entity material="src: #AcousticandSeismicSensing; side: double;" geometry="primitive: plane; width: 10; height: 6;" gps-new-entity-place="latitude: 38.9299239; longitude: -77.0375728" ></a-entity>
+    </a-scene>
+</body>
+</html><!--38.929990, -77.036990-->

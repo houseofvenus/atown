@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../media/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../media/icon/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
+    <title>«From Farmland to...» Book Delivery 010923</title>
+    <link rel ="stylesheet" type="text/css" href="../css/PublicAugmentedRealityKinectome.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+   crossorigin=""/>
+    <link rel="stylesheet" type="text/css" href="../css/library-map-filter.css" />
+</head>
+<body>
+    <div id="return-book-container" class="library-action-module-container">
+        <h2 id="return-book-header-container">Book Returned ✅</h2>
+        <p class="return-book-text-container">Delivered at 6:47:39PM @ KT's Library</p>
+        <div id="return-book-cover-container"></div>
+        <h3 id="return-book-title-container"></h3>
+        <p id="return-book-owner-container"></p>
+        <!--<div style="height: 450px; overflow-y:scroll"></div>-->
+        <input type="button" value="View Map" id="return-to-map-button-container"/>
+    </div>
+    
+    <div id="main-app-container">
+        <div id="map" class="layer-container base-layer-container">
+        </div>
+    </div>
+    <!-- https://unpkg.com/leaflet@1.9.4/dist/leaflet.js
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+   crossorigin=""-->
+    <script src="./js/park.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
+    <script>
+        var storage, database;
+
+        const config = {
+          apiKey: "AIzaSyAzqXRxpmI9K7UMTsiuFU6b54SkSjNojkU",
+          authDomain: "lyoko-blockchain.firebaseapp.com",
+          databaseURL: "https://lyoko-blockchain-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "lyoko-blockchain",
+          storageBucket: "lyoko-blockchain.appspot.com",
+          messagingSenderId: "820284895954",
+          appId: "1:820284895954:web:e69039cadfd002bc15b30b"
+        };
+        
+        function initMap() {
+           
+            map = L.map('map').setView([38.929990, -77.036990], 16);
+            
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© House of Venus'
+            }).addTo(map);
+
+            map.on('click', onMapClick);
+
+            console.log("Return 'From Farmland to StreetLevel'");
+            document.getElementById("return-book-container").style.display = "block";
+            document.getElementById("return-book-cover-container").style.backgroundImage = "url(./media/img/from-farmland-to-streetlevel-book-cover.png)";
+            document.getElementById("return-book-title-container").innerHTML = "From Farmland to Streetlevel";
+            document.getElementById("return-book-owner-container").innerHTML = "<p>From: Patrice-Morgan (Borrower)</p><p>To: Katie (Owner)</p>";
+            
+            document.getElementById("return-to-map-button-container").addEventListener("click", function(){
+                window.location.href = "https://littlefreedigitallibrary.com";
+            });
+        }
+        
+        function onMapClick(e) {
+            console.log("Click @ " + e.latlng);
+        }
+
+        function downloadDailyDeliveryTargets(deliverNodes){
+            let dailyDeliveryTargets = deliverNodes;
+            console.log("----------------------\nKnown Daily Delivery Targets");
+            var realDeliveryTargets = [];
+
+            var targetTitles = Object.keys(dailyDeliveryTargets);
+            for(var currentTitle = 0; currentTitle < targetTitles.length; currentTitle++){
+              (function(){
+                if(targetTitles[currentTitle].indexOf("order-")>-1){
+                  let currentDeliveryTarget = dailyDeliveryTargets[targetTitles[currentTitle]];
+                  realDeliveryTargets.push(currentDeliveryTarget);
+
+                  if(currentDeliveryTarget.zoom){
+                      iconSize = new google.maps.Size(currentDeliveryTarget.iconSize.x, currentDeliveryTarget.iconSize.y);
+                  }
+                  else{
+                      iconSize = new google.maps.Size(50, 50);
+                  }
+
+                  currentDeliveryTarget.marker = new google.maps.Marker({
+                      position: currentDeliveryTarget.position,
+                      map: map,
+                      icon: {
+                          url: currentDeliveryTarget.icon,
+                          scaledSize: iconSize
+                      }
+                  });
+
+                  currentDeliveryTarget.marker.addListener("click", function(){
+                      toggleRestaurantInfoPreview(currentDeliveryTarget.name);
+                    //  console.log("you clicked on a marker");
+                  });
+
+                  Restaurants.push(currentDeliveryTarget);
+                }
+              })();
+            }
+            //console.log(realDeliveryTargets);
+        }
+
+        function downloadNodeData(nodes){
+            let downloadedLocations = nodes;
+            let loci = Object.keys(downloadedLocations);
+            let order = loci.length;
+
+
+            console.log("downloaded Locations");
+            //console.log(downloadedLocations);
+
+            // convert the downloadedLocations JavaScript Object into the locations JavaScript Array
+
+            for(var locus = 0; locus < order; locus++){
+                (function(){
+                    locations.push(downloadedLocations[loci[locus]]);
+            //        console.log(downloadedLocations[loci[locus]]);
+                })();
+            }
+
+            // traverse the locations Array to create the markers for the members in the pARk
+            for(var i=0; i<locations.length; i++){
+                (function(){
+                    let currentLocation = {
+                        marker: null,
+                        position: locations[i].position,
+                        icon: locations[i].icon,
+                        name: locations[i].name,
+                        rating: locations[i].rating,
+                        description: locations[i].description,
+                        tables: locations[i].tables,
+                        zoom: locations[i].zoom,
+                        pointer: locations[i].pointer,
+                        queueLoc: i,
+                        lastPublicPostPreviewAvailable: locations[i].lastPublicPostPreviewAvailable,
+                        lastPublicPostPreviewImage: "url(../media/img/yktv-static.gif)",
+                        iconSize: locations[i].iconSize,
+                        widgetOptions: locations[i].widgetOptions,
+                        targets: locations[i].targets
+                    };
+
+                    storage.refFromURL(locations[i].lastPublicPostPreviewImage).getDownloadURL().then(function(url){
+                        currentLocation.lastPublicPostPreviewImage = `url(${url})`;
+                        //console.log(currentLocation);
+                    }).catch((error) => {
+                        console.log(error);
+                    });
+
+                    let iconSize;
+
+                    if(currentLocation.zoom){
+                        iconSize = new google.maps.Size(currentLocation.iconSize.x, currentLocation.iconSize.y);
+                    }
+                    else{
+                        iconSize = new google.maps.Size(50, 50);
+                    }
+
+                    currentLocation.marker = new google.maps.Marker({
+                        position: currentLocation.position,
+                        map: map,
+                        icon: {
+                            url: currentLocation.icon,
+                            scaledSize: iconSize
+                        }
+                    });
+
+                    currentLocation.marker.addListener("click", function(){
+                        toggleRestaurantInfoPreview(currentLocation.name);
+                      //  console.log("you clicked on a marker");
+                    });
+
+                    //console.log(currentLocation);
+                    Restaurants.push(currentLocation);
+                })();
+            }
+        }
+
+        function loadMarkers(){
+            storage = firebase.storage();
+            database = firebase.database();
+
+            const dbRefObject = database.ref().child("members");
+
+            dbRefObject.once("value").then(function(snap){
+                //console.log(snap.val());
+                downloadNodeData(snap.val());
+            });
+
+            loadDroneMarkers();
+        }
+
+        function loadDroneMarkers(){
+          const deliverRefObject = database.ref().child("orders");
+
+          deliverRefObject.once("value").then(function(snap){
+            downloadDailyDeliveryTargets(snap.val());
+          });
+        }
+
+        firebase.initializeApp(config);
+
+        firebase.auth().signInWithEmailAndPassword("traderjoesdeliverydc@gmail.com", "L3R0!duL0@ng0")
+          .then((userCredential) => {
+            // Signed in
+            console.log("signed in");
+            var user = userCredential.user;
+            //console.log(user);
+            // ...
+          })
+          .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+          });
+
+        window.addEventListener("load", function(){
+          console.log("content loaded");
+        });
+
+        document.addEventListener("DOMContentLoaded", function(){
+            console.log("attaching button handlers");
+            setTimeout(function(){
+                initMap()
+            }, 500);
+        });
+
+    </script>
+</body>
+</html>

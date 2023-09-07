@@ -9,305 +9,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
-    <title>v. 0.2.0.b</title>
+    <title>v. 0.9.4.c</title>
     <link rel ="stylesheet" type="text/css" href="../css/PublicAugmentedRealityKinectome.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
    crossorigin=""/>
-    <style>
-        .header-container{
-            width: 100%; height; 50px; line-height: 50px; font-size: 24px; text-align: center; cursor: pointer;
-        }
-    
-        .header-icon-container{
-            width: 50px;
-            height: 50px;
-            display: block;
-            margin: 5% auto;
-            border-radius: 50%;
-            background-position: center;
-            background-size: 100% auto;
-            background-repeat: no-repeat;
-        }
-        
-        #joes-club-header-icon-container{
-            background-image: url(./media/img/md-heart-icon.png);
-        }
-        
-        #pm-library-header-icon-container{
-            background-image: url(./media/img/pm-library-icon.png)
-        }
-        
-        #mcdonalds-header-icon-container{
-            background-image: url(./media/img/mcdonalds-icon.png);
-        }
-        
-        #seven-11-header-icon-container{
-            background-image: url(./media/img/7-eleven-icon.png);
-        }
-        
-        #chik-fil-a-header-icon-container{
-            background-image: url(./media/img/chik-fil-a-icon.png);
-        }
-        
-        #harvard-st-library-header-icon-container{
-            background-image: url(./media/img/pong-logo.png);
-        }
-        
-        #because-of-sex-book-option-container{
-            background-image: url(./media/img/because-of-sex-book-cover.png);
-        }
-        
-        #the-house-of-scorpion-book-option-container{
-            background-image: url(./media/img/house-of-the-scorpion-book-cover.png);
-        }
-        
-        #the-nazi-seizure-of-power-book-option-container{
-            background-image: url(./media/img/the-nazi-seizure-of-power-book-cover.png);
-        }
-        
-        #from-farmland-to-streetlevel-book-option-container{
-            background-image: url(./media/img/from-farmland-to-streetlevel-book-cover.png);
-        }
-        
-        #the-book-of-forgiving-book-option-container{
-            background-image: url(./media/img/the-book-of-forgiving-book-cover.png);
-        }
-        
-        #l4yer-cake-book-option-container{
-            background-image: url(./media/img/l4yer-cake-book-cover.png);
-        }
-        
-        .book-option-button-container{
-            background-size: auto 80%;
-            display: inline-block;
-            margin-bottom: 35px;
-            height: 150px;
-            width: max(49%, 100px);
-            border: 0;
-            cursor: pointer;
-            border-radius: 10px;
-            background-position: center;
-            background-color: rgba(255, 255, 255, 0);
-            background-repeat: no-repeat;
-            transition: background-size 0.25s;
-        
-        }
-        
-        .book-option-button-container:hover{
-            background-size: auto 105%;
-        }
-        
-        .option-button-container{
-            display: inline-block;
-            margin-bottom: 35px;
-            height: 100px;
-            width: max(49%, 100px);
-            border: 0;
-            cursor: pointer;
-            border-radius: 10px;
-            background-position: center;
-            background-color: rgba(255, 255, 255, 0);
-            background-repeat: no-repeat;
-            transition: background-size 0.25s;
-        }
-        
-        #hash-brown-option-container{
-            background-image: url(./media/img/hash-brown.png);
-            background-size: auto 60%;
-        }
-        
-        #hash-brown-option-container:hover{
-            background-size: auto 100%;
-        }
-        
-        #ketchup-option-container{
-            background-image: url(./media/img/ketchup-container.png);
-            background-size: auto 70%;
-        }
-        
-        .view-digital-book-button-container{
-            border: 0;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            width: max(90%, 150px);
-            height: 35px;
-            line-height: 35px;
-            text-align: center;
-            cursor: pointer;
-            outline: none;
-            background-color: blue;
-            color: yellow;
-            text-transform: uppercase;
-            transition: color 0.25s, background-color 0.25s;
-        }
-        
-        .view-digital-book-button-container:hover{
-            background-color: red;
-            color: white;
-        }
-        
-        .add-item-to-order-queue-button-container{
-            border: 0;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            width: max(90%, 150px);
-            height: 35px;
-            line-height: 35px;
-            text-align: center;
-            cursor: pointer;
-            outline: none;
-            background-color: aquamarine;
-            color: black;
-            text-transform: uppercase;
-            transition: color 0.25s, background-color 0.25s;
-        }
-        
-        .add-item-to-order-queue-button-container:hover{
-            background-color: red;
-            color: white;
-        }
-        
-        #ketchup-option-container:hover{
-            background-size: auto 100%;
-        }
-        
-        #tampons-option-container{
-            background-image: url(./media/img/tampax.png);
-            background-size: auto 50%;
-        }
-        
-        #tampons-option-container:hover{
-            background-size: auto 100%;
-        }
-        
-        #condoms-option-container{
-            background-image: url(./media/img/magnum-condoms.png);
-            background-size: auto 60%;
-        }
-        
-        #condoms-option-container:hover{
-            background-size: auto 100%;
-        }
-        
-        #chicken-nuggets-option-container{
-            background-image: url(./media/img/chicken-nuggets.png);
-            background-size: auto 105%;
-        }
-        
-        #chicken-nuggets-option-container:hover{
-            background-size: auto 135%;
-        }
-        
-        #chik-fil-a-sauce-option-container{
-            background-image: url(./media/img/chik-fil-a-sauce.png);
-            background-size: auto 70%;
-        }
-        
-        #chik-fil-a-sauce-option-container:hover{
-            background-size: auto 100%;
-        }
-        
-        #member-options-container{
-            font-family: "Braah One", sans-serif;
-            position: absolute;
-            z-index: 1000;
-            width: 250px;
-            height: 175px;
-            border: 0;
-            padding: 30px;
-            border-radius: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            cursor: pointer;
-            bottom: 3%;
-            right: 3%;
-            overflow-y: scroll;
-        }
-        
-        #martins-bbq-chips-option-container{
-            background-image: url(./media/img/martins-bbq-chips-icon.webp);
-            background-size: auto 70%;
-        }
-        
-        #martins-bbq-chips-option-container:hover{
-            background-size: auto 100%;
-        }
-        
-        #martins-sea-salted-chips-option-container{
-            background-image: url(./media/img/martins-sea-salted-chips-icon.webp);
-            background-size: auto 70%;
-        }
-        
-        #martins-sea-salted-chips-option-container:hover{
-            background-size: auto 100%;
-        }
-        
-        #natty-boh-0-option-container, #natty-boh-1-option-container{
-            background-image: url(./media/img/natty-boh-icon.png);
-            background-size: auto 90%;
-        }
-        
-        #natty-boh-0-option-container:hover, #natty-boh-1-option-container:hover{
-            background-size: auto 120%;
-        }
-        
-        #pbr-0-option-container, #pbr-1-option-container{
-            background-image: url(./media/img/pbr-icon.avif);
-            background-size: auto 90%;
-        }
-        
-        #pbr-0-option-container:hover, #pbr-1-option-container:hover{
-            background-size: auto 120%;
-        }
-        
-        #table-tennis-balls-option-container{
-            background-image: url(./media/img/table-tennis-balls.png);
-            background-size: auto 70%;
-        }
-        
-        #table-tennis-balls-option-container:hover{
-            background-size: auto 100%;
-        }
-        
-        .popup-description-container{
-            line-height: 22px;
-            font-size: 12px;
-            letter-spacing: 1px;
-            margin: 12px auto;
-        }
-        
-        #pm-library-catalog-container{
-            width: 300px;
-            height: 300px;
-            overflow-y: scroll;
-        }
-        
-        .return-book-button-container{
-            border: 0;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            width: max(90%, 150px);
-            height: 35px;
-            line-height: 35px;
-            text-align: center;
-            cursor: pointer;
-            outline: none;
-            background-color: salmon;
-            color: black;
-            text-transform: uppercase;
-            transition: color 0.25s, background-color 0.25s;
-        }
-        
-        .return-book-button-container:hover{
-            background-color: red;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../css/library-map-filter.css" />
 </head>
 <body>
-    <div id="delivery-module-container" class="park-module-container">
-        <h2 id="schedule-instructions-title-container">Schedule a Delivery</h2>
+    <div id="success-container">
+        <div id="success-icon-container"></div>
+        <div id="success-text-container">Your Request Is Being Completed</div>
+    </div>
+    <div id="check-out-book-container" class="park-module-container">
+        <h2 id="schedule-instructions-title-container">Check Out</h2>
         <p class="park-module-instruction-paragraph-container">Select a start point for your delivery by clicking on a location on the map</p>
         <p class="park-module-instruction-paragraph-container">Select a destination point for your delivery by clicking on a location on the map</p>
         <p class="park-module-instruction-paragraph-container">To customize flight settings, click on the generated flight path</p>
@@ -315,14 +30,13 @@
         <p class="park-module-instruction-paragraph-container">When you are ready to begin click start below!</p>
         <input type="button" value="deliver" id="start-scheduling-delivery-button-container" class="start-scheduling-button-container"/>
     </div>
-    <div id="film-module-container" class="park-module-container">
-        <h2 id="schedule-instructions-title-container">Schedule a Film Shoot</h2>
-        <p class="park-module-instruction-paragraph-container">Select a focal point for your aerial film shoot by clicking on a location on the map</p>
-        <p class="park-module-instruction-paragraph-container">The default film radius, FR, is half a kilometer (about a third of a mile)</p>
-        <p class="park-module-instruction-paragraph-container">To change the FR click and other film settings click on the generated circle</p>
-        <p class="park-module-instruction-paragraph-container">Note: only one film shoot can be scheduled at a time</p>
-        <p class="park-module-instruction-paragraph-container">When you are ready to begin click start below!</p>
-        <input type="button" value="film" id="start-scheduling-film-button-container" class="start-scheduling-button-container"/>
+    <div id="return-book-container" class="library-action-module-container">
+        <h2 id="return-book-header-container">Book Return</h2>
+        <p class="return-book-text-container">You selected the following title for book return:</p>
+        <div id="return-book-cover-container"></div>
+        <h3 id="return-book-title-container"></h3>
+        <p id="return-book-owner-container"></p>
+        <input type="button" value="Return This Book" id="start-book-return-button-container"/>
     </div>
     
     <div id="main-app-container">
@@ -330,21 +44,24 @@
         <div id="user-access-layer-container" class="page-container layer-container upper-layer-container">
             <div id="instructions-wrapper-container">
                 <p id="welcome-instruction-header-container">
-                    The Digital Little Free Library
+                    The Little Free Digital Library
                 </p>
                 <div class="instructions-block">
                     <p>
-                        Welcome to the Digital Little Free Library System! Click on the icons to browse little free library libraries near you. Use the options to borrow, share, and return books and other media. Digital versions of most items are also available!
+                        Welcome to the Little Free Digital Library System! Explore Little Free Library collections near you, online.
                     </p>
                     <div id="instruction-graphic-1-container" class="instruction-graphic-container"></div>
+                    <p>
+                        Click on the icons to browse, borrow, share, and/or return books online. Some collections also contain digital media (films, ebook, etc).
+                    </p>
                   <!--  <p>
                         All orders will be delivered to the nearest Door. To use Direct Delivery access the pARk through your cARd.-->
                         <!-- Tap items to view and order.
                     </p>-->
                 </div>
-                <p id="tap-to-start-title-container">
+                <!--<p id="tap-to-start-title-container">
                     tap anywhere to start
-                </p>
+                </p>-->
             </div>
         </div>
         <div id="create-account-input-container" class="create-input-container">
@@ -386,24 +103,88 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         };
         
         function initMap() {
+            
+            document.getElementById("start-book-return-button-container").addEventListener("click", function(){
+                document.getElementById("return-book-container").style.display = "none";
+                document.getElementById("success-container").style.display = "block";
+                setTimeout(function(){
+                    document.getElementById("success-container").style.display = "none";
+                }, 5000);
+            });
            
             map = L.map('map').setView([38.929990, -77.036990], 16);
             
-            //38.929135, -77.035661
-            var HarvardStLibraryIcon = L.icon({
-                iconUrl: './media/img/pong-logo.png',
-                iconSize: [75, 60],
-                popupAnchor: [38.929135, -77.035661]
-            });
+            var LittleFreeDigitalLibraryIconMap = [
+                {
+                    name: "Harvard St Library",
+                    icon: L.icon({
+                        iconUrl: './media/img/library-icon.png',
+                        iconSize: [100, 80],
+                        popupAnchor: [38.929135, -77.035661]
+                    }),
+                },
+                {
+                    name: "Patrice-Morgan's Library",
+                    icon: L.icon({
+                        iconUrl: './media/img/library-icon.png',
+                        iconSize: [100, 80],
+                        popupAnchor: [38.932696, -77.039743]
+                    })
+                },
+                {
+                    name: "KT's Library",
+                    icon: L.icon({
+                        iconUrl: './media/img/library-icon.png',
+                        iconSize: [100, 80],
+                        popupAnchor: [38.933563, -77.038869]
+                    }),
+                }
+            ];
             
-            var PatriceMorgansLibraryIcon = L.icon({
-                iconUrl: './media/img/library-icon.png',
-                iconSize: [75, 60],
-                popupAnchor: [38.932696, -77.039743]
-            });
-            
-            var HarvardStLibrary = L.marker([38.926350, -77.036692], {icon: HarvardStLibraryIcon});
-            var PatriceMorgansLibrary = L.marker([38.932696, -77.039743], {icon: PatriceMorgansLibraryIcon});
+            var LittleFreeDigitalLibrary = [
+                {
+                    name: "Harvard St Library",
+                    marker: L.marker([38.926350, -77.036692], {icon: LittleFreeDigitalLibraryIconMap[0].icon}),
+                    popup: L.popup([38.926350, -77.036692], {
+                        content: `<h3 id="harvard-st-library-header-container" class="header-container">Harvard St Library</h3><div class="header-icon-container" id="harvard-st-library-header-icon-container"></div><div class="library-catalog-container">
+                        <button id="table-tennis-balls-option-container" class="option-button-container"></button>
+                        <button id="natty-boh-1-option-container" class="option-button-container"></button>
+                        <button id="pbr-1-option-container" class="option-button-container"></button></div>`
+                    })
+                },
+                {
+                    name: "Patrice-Morgan's Library",
+                    marker: L.marker([38.932696, -77.039743], {icon: LittleFreeDigitalLibraryIconMap[1].icon}),
+                    popup: L.popup([38.932696, -77.039743], {
+                        content: `<h3 id="pm-library-header-container" class="header-container">Patrice-Morgan's Library</h3><div id="pm-library-header-icon-container" class="header-icon-container"></div><div id="pm-library-catalog-container">
+                        <button id="because-of-sex-book-option-container" class="book-option-button-container"></button>
+                        <button id="the-house-of-scorpion-book-option-container" class="book-option-button-container"></button>
+                        <button id="the-nazi-seizure-of-power-book-option-container" class="book-option-button-container"></button>
+                        <button id="the-book-of-forgiving-book-option-container" class="book-option-button-container"></button>
+                        <button id="l4yer-cake-book-option-container" class="book-option-button-container"></button>
+                        </div>`
+                    })/*<button id="from-farmland-to-streetlevel-book-0-option-container" class="book-option-button-container"></button>*/
+                },
+                {
+                    name: "KT's Library",
+                    marker: L.marker([38.933563, -77.038869], {icon: LittleFreeDigitalLibraryIconMap[2].icon}),
+                    popup: L.popup([38.933563, -77.038869], {
+                        content: `<h3 id="kt-library-header-container" class="header-container">KT's Library</h3><div id="kt-library-header-icon-container" class="header-icon-container"></div><div id="pm-library-catalog-container">
+                        <button id="from-farmland-to-streetlevel-book-1-option-container" class="book-option-button-container"></button>
+                        <button id="dragons-heart-book-option-container" class="book-option-button-container"></button>
+                        <button id="father-of-the-bride-book-option-container" class="book-option-button-container"></button>
+                        <button id="key-west-connection-book-option-container" class="book-option-button-container"></button>
+                        <button id="critique-of-pure-reason-book-option-container" class="book-option-button-container"></button>
+                        <button id="time-and-the-other-book-option-container" class="book-option-button-container"></button>
+                        <button id="stop-dressing-your-six-year-old-like-a-skank-book-option-container" class="book-option-button-container"></button>
+                        <button id="the-theatre-of-the-absurd-book-option-container" class="book-option-button-container"></button>
+                        <button id="on-the-plurality-of-worlds-book-option-container" class="book-option-button-container"></button>
+                        <button id="a-history-of-the-modern-middle-east-book-option-container" class="book-option-button-container"></button>
+                        <button id="total-immersion-book-option-container" class="book-option-button-container"></button>
+                        </div>`
+                    })
+                }
+            ]
             
            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© House of Venus'
@@ -411,93 +192,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 
             map.on('click', onMapClick);
             
-            //var memberOptionsContainer = L.popup([38.924628, -77.024975], {content: '<p>Hello world!<br />This is a nice popup.</p>', width: 400, height: 300}).openOn(map);
-            var PatriceMorgansLibraryPopup = L.popup([38.932696, -77.039743], {
-                content: `<h3 id="pm-library-header-container" class="header-container">Patrice-Morgan's Library</h3><div id="pm-library-header-icon-container" class="header-icon-container"></div><div id="pm-library-catalog-container">
-        <button id="because-of-sex-book-option-container" class="book-option-button-container"></button>
-        <button id="the-house-of-scorpion-book-option-container" class="book-option-button-container"></button>
-        <button id="the-nazi-seizure-of-power-book-option-container" class="book-option-button-container"></button>
-        <button id="from-farmland-to-streetlevel-book-option-container" class="book-option-button-container"></button>
-        <button id="the-book-of-forgiving-book-option-container" class="book-option-button-container"></button>
-        <button id="l4yer-cake-book-option-container" class="book-option-button-container"></button>
-        </div>`
-            });
             
-            PatriceMorgansLibrary.bindPopup(PatriceMorgansLibraryPopup);
+            LittleFreeDigitalLibrary[0].marker.bindPopup(LittleFreeDigitalLibrary[0].popup);
             
-            PatriceMorgansLibrary.on("popupopen", function(){
-                document.getElementById("member-options-container").innerHTML = "<h3>Patrice-Morgan's Library</h3><p class='popup-description-container'>Welcome to my Digital Little Free Library! Feel free to explore, share, and borrow from my collection.</p><p>🚁 Hours</p><h5>11:00AM to 11:00PM</h5><p>📚 Hours</p><h5>Open 24/7</h5>";
-                
-                
-                maidenPop[6] = true;
-
-                document.getElementById("because-of-sex-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>Because of Sex</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Gillian Thomas's Because of Sex tells the story of how one law, our highest court, and a few tenacious women changed the American workplace forever.</p><p>1 count</p><button id='because-of-sex-digital-link-container' class='view-digital-book-button-container'>Digital</button><button class='add-item-to-order-queue-button-container'>Check Out</button>";
-                    
-                    document.getElementById('because-of-sex-digital-link-container').addEventListener("click", function(){
-                        window.open("./media/book/Because-Of-Sex.pdf", "_blank");
-                    });
-                });
-                
-                
-                document.getElementById("the-house-of-scorpion-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>The House of the Scorpion</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>In a future where humans despise clones, Matt enjoys special status as the young clone of El Patrón, the 140-year-old leader of a corrupt drug empire nestled between Mexico and the United States.</p><p>1 count</p><button id='the-house-of-scorpion-digital-link-container' class='view-digital-book-button-container'>Digital</button><button class='add-item-to-order-queue-button-container'>Check Out</button>";
-                    
-                    document.getElementById("the-house-of-scorpion-digital-link-container").addEventListener("click", function(){
-                        window.open("./media/book/The-House-Of-The-Scorpion.pdf", "_blank");
-                    });
-                });
-                
-                document.getElementById("the-nazi-seizure-of-power-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>The Nazi Seizure of Power</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>William Sheridan Allen's research provides an intimate, comprehensive study of the mechanics of revolution and an analysis of the Nazi Party's subversion of democracy. Beginning at the end of the Weimar Republic, Allen examines the entire period of the Nazi Revolution within a single locality.</p><p>1 count</p><button id='the-nazi-seizure-of-power-digital-link-container' class='view-digital-book-button-container'>Digital</button><button class='add-item-to-order-queue-button-container'>Check Out</button>";
-                    
-                    document.getElementById("the-nazi-seizure-of-power-digital-link-container").addEventListener("click", function(){
-                         window.open("./media/book/The-Nazi-Seizure-Of-Power.pdf", "_blank");
-                    });
-                });
-                
-                document.getElementById("from-farmland-to-streetlevel-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>From Farmland to Streetlevel</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>A thesis about direct trade coffee in Honduras</p><p>1 count</p><button id='from-farmland-to-streetlevel-digital-link-container' class='view-digital-book-button-container'>Digital</button><button class='return-book-button-container'>Return</button>";
-                    
-                    document.getElementById("from-farmland-to-streetlevel-digital-link-container").addEventListener("click", function(){
-                        window.open("https://www.amazon.com/Farmlevel-Streetlevel-Ethnography-Direct-Honduras/dp/1512067105", "_blank");
-                    });
-                });
-                
-                document.getElementById("the-book-of-forgiving-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>The Book of Forgiving</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>The Book of Forgiving is both a touchstone and a tool, offering Tutu's wise advice and showing the way to experience forgiveness.</p><p>1 count</p><button id='the-book-of-forgiving-digital-link-container' class='view-digital-book-button-container'>Digital</button><button class='return-book-button-container'>Return</button>";
-                
-                    document.getElementById("the-book-of-forgiving-digital-link-container").addEventListener("click", function(){
-                        window.open("./media/book/The-Book-Of-Forgiving.pdf", "_blank");
-                    });
-                });
-                
-                document.getElementById("l4yer-cake-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>L4yer Cake</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Smooth-talking drug dealer X has a plan to quietly bankroll enough cash to retire before his thirtieth birthday. Operating under the polished veneer of a legitimate businessman, his mantra is to keep a low profile and run a tight operation until it's time to get out.</p><p>1 count</p><button id='l4yer-cake-digital-link-container' class='view-digital-book-button-container'>Digital</button><button class='return-book-button-container'>Return</button>";
-                    
-                    document.getElementById("l4yer-cake-digital-link-container").addEventListener("click", function(){
-                        window.open("./media/book/L4yer-Cake.pdf", "_blank");
-                    });
-
-                });
-            });
-            
-            PatriceMorgansLibrary.on("popupclose", function(){
-                document.getElementById("member-options-container").innerHTML = "<h3>Public Augmented Reality Kinectome</h3><p>Click on an icon to start</p>"
-            });
-            
-            
-            
-            var HarvardStLibraryPopup = L.popup([38.926350, -77.036692], {
-                content: `<h3 id="harvard-st-library-header-container" class="header-container">Harvard St Library</h3><div class="header-icon-container" id="harvard-st-library-header-icon-container"></div><div style="width:300px;height:300px;">
-        <button id="table-tennis-balls-option-container" class="option-button-container"></button>
-        <button id="natty-boh-1-option-container" class="option-button-container"></button>
-        <button id="pbr-1-option-container" class="option-button-container"></button></div>`
-            });
-            
-            HarvardStLibrary.bindPopup(HarvardStLibraryPopup);
-            
-            HarvardStLibrary.on("popupopen", function(){
+            LittleFreeDigitalLibrary[0].marker.on("popupopen", function(){
                 document.getElementById("member-options-container").innerHTML = "<h3>Harvard St Library</h3><p class='popup-description-container'>Party On New Generation . New Season Begins Labor Day Weekend!</p><p>👻 🔪 Hours</p><h5>12:00AM to 6:00AM</h5>";
                 
                 
@@ -513,12 +211,172 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                 
             });
             
-            HarvardStLibrary.on("popupclose", function(){
-                document.getElementById("member-options-container").innerHTML = "<h3>Public Augmented Reality Kinectome</h3><p>Click on an icon to start</p>"
+            LittleFreeDigitalLibrary[0].marker.on("popupclose", function(){
+                document.getElementById("member-options-container").innerHTML = "<h3>The Little Free Digital Library</h3><p>Hello World! Click on an icon to start.</p><br/><h3>Key</h3><p>📚 Library</p><p>🧑🏽‍🏫 , 🚁Librarian</p>"
             });
             
-            HarvardStLibrary.addTo(map);
-            PatriceMorgansLibrary.addTo(map)
+            
+            LittleFreeDigitalLibrary[1].marker.bindPopup(LittleFreeDigitalLibrary[1].popup);
+            
+            LittleFreeDigitalLibrary[1].marker.on("popupopen", function(){
+                document.getElementById("member-options-container").innerHTML = "<h3>Patrice-Morgan's Library</h3><p class='popup-description-container'>Welcome to my Digital Little Free Library! Feel free to explore, share, and borrow from my collection.</p><p>🚁 Hours</p><h5>11:00AM to 11:00PM</h5><p>📚 Hours</p><h5>Open 24/7</h5>";
+                
+                
+                maidenPop[6] = true;
+
+                document.getElementById("because-of-sex-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Because of Sex</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Gillian Thomas's Because of Sex tells the story of how one law, our highest court, and a few tenacious women changed the American workplace forever.</p><p>1 count</p><button id='because-of-sex-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-because-of-sex-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('because-of-sex-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Because-Of-Sex.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-because-of-sex-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Because of Sex'");
+                    });
+                });
+                
+                
+                document.getElementById("the-house-of-scorpion-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The House of the Scorpion</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>In a future where humans despise clones, Matt enjoys special status as the young clone of El Patrón, the 140-year-old leader of a corrupt drug empire nestled between Mexico and the United States.</p><p>1 count</p><button id='the-house-of-scorpion-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-house-of-scorpion-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("the-house-of-scorpion-digital-link-container").addEventListener("click", function(){
+                        window.open("./media/book/The-House-Of-The-Scorpion.pdf", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-the-house-of-scorpion-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'The House of the Scorpion'");
+                    });
+                });
+                
+                document.getElementById("the-nazi-seizure-of-power-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The Nazi Seizure of Power</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>William Sheridan Allen's research provides an intimate, comprehensive study of the mechanics of revolution and an analysis of the Nazi Party's subversion of democracy. Beginning at the end of the Weimar Republic, Allen examines the entire period of the Nazi Revolution within a single locality.</p><p>1 count</p><button id='the-nazi-seizure-of-power-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-nazi-seizure-of-power-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("the-nazi-seizure-of-power-digital-link-container").addEventListener("click", function(){
+                         window.open("./media/book/The-Nazi-Seizure-Of-Power.pdf", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-the-nazi-seizure-of-power-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'The Nazi Seizure of Power'");
+                    });
+                });
+                
+              /*  document.getElementById("from-farmland-to-streetlevel-book-0-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>From Farmland to Streetlevel</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>A thesis about direct trade coffee in Honduras</p><p>1 count</p><button id='from-farmland-to-streetlevel-digital-link-0-container' class='view-digital-book-button-container'>Digital</button><button id='return-farmland-book-0-button-container' class='return-book-button-container'>Return</button>";
+                    
+                    document.getElementById("from-farmland-to-streetlevel-digital-link-0-container").addEventListener("click", function(){
+                        window.open("https://www.amazon.com/Farmlevel-Streetlevel-Ethnography-Direct-Honduras/dp/1512067105", "_blank");
+                    });
+                    
+                    document.getElementById("return-farmland-book-0-button-container").addEventListener("click", function(){
+                        console.log("Return 'From Farmland to StreetLevel'");
+                        document.getElementById("return-book-container").style.display = "block";
+                        document.getElementById("return-book-cover-container").style.backgroundImage = "url(./media/img/from-farmland-to-streetlevel-book-cover.png)";
+                        document.getElementById("return-book-title-container").innerHTML = "From Farmland to Streetlevel";
+                        document.getElementById("return-book-owner-container").innerHTML = "Owner: Katie | Borrower: Patrice-Morgan";
+                    });
+                });
+                 hide the above function once demo is done*/
+                
+                document.getElementById("the-book-of-forgiving-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The Book of Forgiving</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>The Book of Forgiving is both a touchstone and a tool, offering Tutu's wise advice and showing the way to experience forgiveness.</p><p>1 count</p><button id='the-book-of-forgiving-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='return-the-book-of-forgiving-button-container' class='return-book-button-container'>Return</button>";
+                
+                    document.getElementById("the-book-of-forgiving-digital-link-container").addEventListener("click", function(){
+                        window.open("./media/book/The-Book-Of-Forgiving.pdf", "_blank");
+                    });
+                    
+                    document.getElementById("return-the-book-of-forgiving-button-container").addEventListener("click", function(){
+                        console.log("Return 'The Book of Forgiving'");
+                    });
+                });
+                
+                document.getElementById("l4yer-cake-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>L4yer Cake</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Smooth-talking drug dealer X has a plan to quietly bankroll enough cash to retire before his thirtieth birthday. Operating under the polished veneer of a legitimate businessman, his mantra is to keep a low profile and run a tight operation until it's time to get out.</p><p>1 count</p><button id='l4yer-cake-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='return-l4yer-cake-button-container' class='return-book-button-container'>Return</button>";
+                    
+                    document.getElementById("l4yer-cake-digital-link-container").addEventListener("click", function(){
+                        window.open("./media/book/L4yer-Cake.pdf", "_blank");
+                    });
+                    
+                    document.getElementById("return-l4yer-cake-button-container").addEventListener("click", function(){
+                        console.log("Return 'L4yer Cake'");
+                    });
+
+                });
+            });
+            
+            LittleFreeDigitalLibrary[1].marker.on("popupclose", function(){
+                document.getElementById("member-options-container").innerHTML = "<h3>The Little Free Digital Library</h3><p>Hello World! Click on an icon to start.</p><br/><h3>Key</h3><p>📚 Library</p><p>🧑🏽‍🏫 , 🚁Librarian</p>"
+            });
+            
+            
+             LittleFreeDigitalLibrary[2].marker.bindPopup(LittleFreeDigitalLibrary[2].popup);
+            
+            LittleFreeDigitalLibrary[2].marker.on("popupopen", function(){
+                document.getElementById("member-options-container").innerHTML = "<h3>KT's Library</h3><p class='popup-description-container'>Welcome to my Digital Little Free Library! Feel free to explore, share, and borrow from my collection.</p><p>🚁 Hours</p><h5>11:00AM to 11:00PM</h5><p>📚 Hours</p><h5>Open 24/7</h5>";
+                
+                //maidenPop[6] = true;
+                
+                document.getElementById("from-farmland-to-streetlevel-book-1-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>From Farmland to Streetlevel</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>A thesis about direct trade coffee in Honduras</p><p>1 count</p><button id='from-farmland-to-streetlevel-digital-link-1-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-from-farmland-to-streetlevel-book-1-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("from-farmland-to-streetlevel-digital-link-1-container").addEventListener("click", function(){
+                        window.open("https://www.amazon.com/Farmlevel-Streetlevel-Ethnography-Direct-Honduras/dp/1512067105", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-from-farmland-to-streetlevel-book-1-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'Farmland to Streetlevel'");
+                    });
+                });
+                
+                document.getElementById("dragons-heart-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Dragon's Heart</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Austar IV isn't the planet it once was, and when Jakkin and Akki finally return to the dragon nursery, their homecoming arouses mixed emotions...</p><p>1 count</p><button id='dragons-heart-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-dragons-heart-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                });
+                
+                document.getElementById("father-of-the-bride-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Father of the Bride</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>The New York Times bestselling classic tale about modern marriage and the basis for the popular films is now back in print!</p><p class='popup-description-container'>Poor Mr. Banks! His jacket is too tight, he can’t get a cocktail, and he’s footing the bill...He’s the father of the bride.</p><p>1 count</p><button id='father-of-the-bride-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-father-of-the-bride-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                });
+                
+                document.getElementById("key-west-connection-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Key West Connection</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='key-west-connection-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-key-west-connection-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                });
+                
+                document.getElementById("critique-of-pure-reason-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Critique of Pure Reason</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='critique-of-pure-reason-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-critique-of-pure-reason-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                });
+                
+                document.getElementById("time-and-the-other-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Time and the Other</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='time-and-the-other-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-time-and-the-other-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                });
+                
+                document.getElementById("stop-dressing-your-six-year-old-like-a-skank-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Stop Dressing Your Six Year Old Like a Skank</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='stop-dressing-your-six-year-old-like-a-skank-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-stop-dressing-your-six-year-old-like-a-skank-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                });
+                
+                document.getElementById("the-theatre-of-the-absurd-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The Theatre of the Absurd</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='the-theatre-of-the-absurd-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-theatre-of-the-absurd-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                });
+                
+                document.getElementById("on-the-plurality-of-worlds-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>On the Plurality of Worlds</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='on-the-plurality-of-worlds-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-on-the-plurality-of-worlds-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                });
+                
+                document.getElementById("a-history-of-the-modern-middle-east-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>A History of the Modern Middle East</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='a-history-of-the-modern-middle-east-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-a-history-of-the-modern-middle-east-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                });
+                
+                document.getElementById("total-immersion-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Total Immersion: The Revolutionary Way To Swim Better, Faster, and Easier</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='total-immersion-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-total-immersion-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                });
+            });
+            
+            LittleFreeDigitalLibrary[2].marker.on("popupclose", function(){
+                document.getElementById("member-options-container").innerHTML = "<h3>The Little Free Digital Library</h3><p>Hello World! Click on an icon to start.</p><br/><h3>Key</h3><p>📚 Library</p><p>🧑🏽‍🏫 , 🚁Librarian</p>"
+            });
+            
+            
+            LittleFreeDigitalLibrary[0].marker.addTo(map);
+            LittleFreeDigitalLibrary[1].marker.addTo(map);
+            LittleFreeDigitalLibrary[2].marker.addTo(map);
             
             var maidenPop = [
                 false,
@@ -528,7 +386,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             
            var memberOptionsContainer = document.createElement("div");
             memberOptionsContainer.setAttribute("id", "member-options-container");
-            memberOptionsContainer.innerHTML = "<h3>Hello World</h3><p>The Digital Little Free Library</p><p>Click on an icon to start</p>";
+            memberOptionsContainer.innerHTML = "<h3>The Little Free Digital Library</h3><p>Hello World! Click on an icon to start.</p><br/><h3>Key</h3><p>📚 Library</p><p>🧑🏽‍🏫 , 🚁Librarian</p>";
             document.getElementById("main-app-container").append(memberOptionsContainer);
             
             document.getElementById("user-access-layer-container").style.display = "none";
@@ -711,7 +569,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             //attachButtonHandlers();
             setTimeout(function(){
                 initMap()
-            }, 4500);
+            }, 9500);
         });
 
     </script>

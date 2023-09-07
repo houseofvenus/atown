@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0' />
+     <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Tewelde AR Mobile 0.5.0</title>
+    <link rel="stylesheet" type="text/css" href="../css/CreativeAugmentedRealityDesktop.css" />
+    <link rel="stylesheet" type="text/css" href="../css/femcare.css"/>
+    <script src="./js/aframe1.4.0.min.js"></script>
+    <script src="./js/handtrack.min.js"></script>
+    <script>
+        //const model =  await handTrack.load();
+        //const predictions = await model.detect(img);
+        var video, handimg, canvas, context, mobileVideoStarted = false;
+
+        let imgindex = 1;
+        let isVideo = false;
+        let model = null;
+
+        // video.width = 500
+        // video.height = 400
+
+        const modelParams = {
+          flipHorizontal: true, // flip e.g for video
+          maxNumBoxes: 20, // maximum number of boxes to detect
+          iouThreshold: 0.5, // ioU threshold for non-max suppression
+          scoreThreshold: 0.6, // confidence threshold for predictions.
+        };
+
+        function startDesktopVideo() {
+          handTrack.startVideo(video).then(function (status) {
+            console.log("video started", status);
+            if (status) {
+              console.log("Video started. Now tracking");
+              isVideo = true;
+              runDetection();
+            } else {
+              console.log("Please enable video");
+            }
+          });
+            
+            if(mobileVideoStarted){
+                var mobileVideoContainer = document.getElementById("lyoko-video-container");
+                //mobileVideoContainer.style.position = "fixed";
+                mobileVideoContainer.style.zIndex = 1;
+                mobileVideoContainer.style.display = "none";
+                mobileVideoContainer.pause();
+                mobileVideoContainer.srcObject = null;
+                mobileVideoStarted = false;
+
+            }
+        }
+
+        function toggleVideo() {
+          if (!isVideo) {
+            console.log("Starting video");
+            startDesktopVideo();
+          } else {
+            console.log("Stopping video");
+            handTrack.stopVideo(video);
+            isVideo = false;
+            console.log("Tracking stopped\nresuming video without tracking...");
+            startMobileVideo();
+          }
+        }
+
+        function runDetection() {
+          model.detect(video).then((predictions) => {
+            console.log("Predictions: ", predictions);
+            model.renderPredictions(predictions, canvas, context, video);
+            if (isVideo) {
+              requestAnimationFrame(runDetection);
+            }
+          });
+        }
+
+        function runDetectionImage(img, videoEvent) {
+          let videoEventTrigger = videoEvent;
+          model.detect(img).then((predictions) => {
+            console.log("Predictions: ", predictions);
+            model.renderPredictions(predictions, canvas, context, img);
+            if(videoEventTrigger){
+              startDesktopVideo();
+            }
+          });
+        }
+
+        function isDesktop(){
+          console.log(`w: ${window.innerWidth}`);
+          console.log(`h: ${window.innerHeight}`);
+
+          if(window.innerWidth<600){
+            return false;
+          }
+          return true;
+        }
+
+        function startMobileVideo(){
+            var mobileVideoContainer = document.getElementById("lyoko-video-container");
+            //mobileVideoContainer.style.position = "fixed";
+            mobileVideoContainer.style.display = "block";
+            mobileVideoContainer.style.zIndex = 9;
+    
+            mobileVideoStarted = true;
+
+          console.log("starting mobile video engine");
+          // Get access to the camera!
+          if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+              // Not adding `{ audio: true }` since we only want video now
+              navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+                  //video.src = window.URL.createObjectURL(stream);
+                  mobileVideoContainer.srcObject = stream;
+                  mobileVideoContainer.play();
+              });
+          }
+        }
+
+        window.addEventListener('load', function(){
+          video = document.getElementById('lyoko-video-container');
+          handimg = document.getElementById("handimage");
+          canvas = document.getElementById("canvas");
+          context = canvas.getContext("2d");
+          let thisIsADesktop = isDesktop();
+
+          if(thisIsADesktop){
+            // Load the model.
+            handTrack.load(modelParams).then((lmodel) => {
+              // detect objects in the image.
+              model = lmodel;
+              console.log(model);
+              console.log("Loaded Model!");
+              runDetectionImage(handimg, true);
+            });
+          }
+          else{
+            // this is a mobile device
+            startMobileVideo();
+          }
+
+          document.getElementById("toggle-handtracking-button-container").addEventListener("click", function(){
+              toggleVideo();
+          });
+        });
+</script>
+
+</head>
+<body style="margin : 0px; overflow: hidden;">
+    <h3 id="main-scene-header-container">Tewelde's ARt</h3>
+    <video id="lyoko-video-container" width="640" height="480" autoplay></video>
+    <input id="return-to-pangaea-map-button-container" value="" type="button"/>
+    <input id="return-to-experience-lobby-button-container" value="" type="button"/>
+    <input id="go-to-pangaea-shop-button-container" value="" type="button" />
+    <a-scene id="main-scene-container"
+             vr-mode-ui="enabled: false;"
+             renderer="logarithmicDepthBuffer: true;"
+             embedded
+             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; videoTexture: true" renderer='antialias: true; alpha: true'>
+        <a-assets timeout="5000">
+            <img id="AcousticandSeismicSensing" src="./media/img/Acoustic.png">
+            <img id="earth-texture" src="./media/img/earth-texture.png">
+        </a-assets>
+         <a-sphere id="landing-object-container"
+                      material=" src: #earth-texture; side: double;"
+                      radius="10"
+                      position="0 0 -30"
+                      visible="true"
+                      rotation="0 0 0"
+                      animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 12000;">
+            </a-sphere>
+        <a-entity material="src: #AcousticandSeismicSensing; side: double;" geometry="primitive: plane; width: 10; height: 6;" position="0 0 -30" ></a-entity>
+
+            <a-entity id="rig" position="0 1.88 0">
+              <a-entity camera look-controls wasd-controls></a-entity>
+            </a-entity>
+    </a-scene>
+    <canvas id="canvas" class="border canvasbox"></canvas>
+    <div class="mt10">
+        <img src="../media/img/1.jpeg" class="canvasbox  hidden" id="handimage" alt="">
+    </div>
+
+    <input type="button" id="toggle-handtracking-button-container" value="" />
+
+    <input type="button" id="select-previous-item-button-container" class="select-card-menu-button-container" value="<"/>
+    <input type="button" id="toggle-audio-playback-button-container" class="select-card-menu-button-container" value=""/>
+    <input type="button" id="select-next-item-button-container" class="select-card-menu-button-container" value=">"/>
+    <input type="button" id="back-button-container" value="x"/>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
+    <script src="../js/PublicAugmentedRealityKinectome-Beta.js"></script>
+    <script>
+       /* var storage, database;
+
+        var config = {
+            apiKey: "AIzaSyDyH3olBhhKfo5ROFwhxNayOCadNHvWYkc",
+            authDomain: "golden-gorges-park.firebaseapp.com",
+            databaseURL: "https://golden-gorges-park.firebaseio.com/",
+            storageBucket: "gs://golden-gorges-park.appspot.com"
+        };
+
+        firebase.initializeApp(config);
+        storage = firebase.storage();
+        database = firebase.database();
+
+        var cardMenuVisible = false;
+
+        const dbRefObject = database.ref().child("orders");
+        var orderCount;
+
+        dbRefObject.once("value").then(function(snap){
+            let currentTree = snap.val();
+            console.log(currentTree);
+            orderCount = 0;
+            for(var key in currentTree){
+                if(currentTree.hasOwnProperty(key)){
+                    orderCount++;
+                    console.log("order count: "+orderCount);
+                  }
+                }
+                    // TODO: add orderCount to names and pointers
+        });
+*/
+        var XRGallery = {
+            open: false,
+            exhibitList: [
+                {
+                    dbFill: {
+                      description: "One pack containing 18 Regular Absorbency Tampax Pearl Tampons",
+                      icon: "../media/img/og-drone-marker.png",
+                      iconSize: {
+                        x: 75,
+                        y: 75
+                      },
+                      lastPublicPostPreviewAvailable: false,
+                      lastPublicPostPreviewImage: "gs://golden-gorges-park.appspot.com/yktv-static.gif",
+                      menu: {
+                        Item0:
+                          {
+                            description: "Tampax Pearl Tampons (18)",
+                            prepTime: 10,
+                            price: 4.49
+                          }
+                      },
+                      name: `FemCare Delivery for Member Order`,
+                      pointer: `@deliver-order-`,
+                      position: {
+                        lat: 39.082239,
+                        lng: -76.955967
+                      },
+                      rating: "****4.8",
+                      tables: {
+                        0: {
+                          cover: "../media/img/tampax.png",
+                          productName: "Tampax Pearl Tampons (18)",
+                          productMetaData: {
+                            store: "FemCare",
+                            item: "Tampax Pearl Tampons",
+                            method: "Deliver",
+                            target: "Pangaea",
+                          }
+                        }
+                      },
+                      widgetOptions: {
+                        0: 1
+                      },
+                      zoom: true
+                    },
+                    name: "Tampax Pearl",
+                    description: "",
+                    weight: {
+                      datum: 1,
+                      unit: "gram"
+                    },
+                    type: "image/png",
+                    src: "../media/img/tampax.png",
+                    controller: "design-cover-0-container"
+                },
+                {
+                    dbFill: {
+                        description: "One pack containing 12 Always Ultra Thin Maxi Pads",
+                        icon: "../media/img/og-drone-marker.png",
+                        iconSize: {
+                          x: 75,
+                          y: 75
+                        },
+                        lastPublicPostPreviewAvailable: false,
+                        lastPublicPostPreviewImage: "gs://golden-gorges-park.appspot.com/yktv-static.gif",
+                        menu: {
+                          Item0:
+                            {
+                              description: "Always Ultra Thin Maxi Pads (18)",
+                              prepTime: 10,
+                              price: 4.49
+                            }
+                        },
+                        name: `FemCare Delivery for Member Order`,
+                        pointer: `@deliver-order-`,
+                        position: {
+                          lat: 39.107332,
+                          lng: -76.934430
+                        },
+                        rating: "****4.8",
+                        tables: {
+                          0: {
+                            cover: "../media/img/tampax.png",
+                            productName: "Always Ultra Thin Maxi Pads (12)",
+                            productMetaData: {
+                              store: "FemCare",
+                              item: "Always Ultra Thin Maxi Pads",
+                              method: "Deliver",
+                              target: "Pangaea"
+                            }
+                          }
+                        },
+                        widgetOptions: {
+                          0: 1
+                        },
+                        zoom: true
+                    },
+                    name: "Always Maxi Pad",
+                    description: "",
+                    weight: {
+                      datum: 1,
+                      unit: "gram"
+                    },
+                    type: "image/png",
+                    src: "../media/img/always-maxi-pad.png",
+                    controller: "design-cover-1-container"
+                },
+                {
+                    dbFill: {
+                        description: "One pack containing 12 Vagisil Maximum Strength Anti-Itch Medicated Wipes",
+                        icon: "../media/img/og-drone-marker.png",
+                        iconSize: {
+                          x: 75,
+                          y: 75
+                        },
+                        lastPublicPostPreviewAvailable: false,
+                        lastPublicPostPreviewImage: "gs://golden-gorges-park.appspot.com/yktv-static.gif",
+                        menu: {
+                          Item0:
+                            {
+                              description: "Vagisil Anti-Itch Medicated Wipes (12)",
+                              prepTime: 10,
+                              price: 4.49
+                            }
+                        },
+                        name: `FemCare Delivery for Member Order`,
+                        pointer: `@deliver-order-`,
+                        position: {
+                          lat: 39.120476,
+                          lng: -76.989812
+                        },
+                        rating: "****4.8",
+                        tables: {
+                          0: {
+                            cover: "../media/img/vagisil-wipes-box-texture.png",
+                            productName: "Vagisil Anti-Itch Medicated Wipes (12)",
+                            productMetaData: {
+                              store: "FemCare",
+                              item: "Vagisil Anti-Itch Medicated Wipes",
+                              method: "Deliver",
+                              target: "Pangaea"
+                            }
+                          }
+                        },
+                        widgetOptions: {
+                          0: 1
+                        },
+                        zoom: true
+                    },
+                    name: "Vagisil Wipes",
+                    description: "",
+                    weight: {
+                      datum: 1,
+                      unit: "gram"
+                    },
+                    type: "image/png",
+                    src: "../media/img/vagisil-logo.png",
+                    controller: "design-cover-2-container"
+                },
+                {
+                    dbFill: {
+                        description: "One pack containing 7 Doses of Yeast Infection Treatment including 7 Disposable Applicators & 1 Cream Tube",
+                        icon: "../media/img/og-drone-marker.png",
+                        iconSize: {
+                          x: 75,
+                          y: 75
+                        },
+                        lastPublicPostPreviewAvailable: false,
+                        lastPublicPostPreviewImage: "gs://golden-gorges-park.appspot.com/yktv-static.gif",
+                        menu: {
+                          Item0:
+                            {
+                              description: "MONISTAT 7-Dose Yeast Infection Treatment, 7 Disposable Applicators & 1 Cream Tube",
+                              prepTime: 10,
+                              price: 11.99
+                            }
+                        },
+                        name: `FemCare Delivery for Member Order`,
+                        pointer: `@deliver-order-`,
+                        position: {
+                          lat: 39.111951,
+                          lng: -77.012438
+                        },
+                        rating: "****4.8",
+                        tables: {
+                          0: {
+                            cover: "../media/img/monistat-box-texture.png",
+                            productName: "MONISTAT 7-Dose Yeast Infection Treatment",
+                            productMetaData: {
+                              store: "FemCare",
+                              item: "MONISTAT 7-Dose Yeast Infection Treatment, 7 Disposable Applicators & 1 Cream Tube",
+                              method: "Deliver",
+                              target: "Pangaea"
+                            }
+                          }
+                        },
+                        widgetOptions: {
+                          0: 1
+                        },
+                        zoom: true
+                    },
+                    name: "Monistat",
+                    description: "",
+                    weight: {
+                      datum: 1,
+                      unit: "gram"
+                    },
+                    type: "image/png",
+                    src: "../media/img/monistat-logo.png",
+                    controller: "design-cover-3-container"
+                },
+                {
+                    dbFill: {
+                        description: "One pack containing two (2) Clearblue Rapid Detection Pregnancy Tests",
+                        icon: "../media/img/og-drone-marker.png",
+                        iconSize: {
+                          x: 75,
+                          y: 75
+                        },
+                        lastPublicPostPreviewAvailable: false,
+                        lastPublicPostPreviewImage: "gs://golden-gorges-park.appspot.com/yktv-static.gif",
+                        menu: {
+                          Item0:
+                            {
+                              description: "Clearblue Rapid Detection Pregnancy Test (2)",
+                              prepTime: 10,
+                              price: 9.99
+                            }
+                        },
+                        name: `FemCare Delivery for Member Order`,
+                        pointer: `@deliver-order-`,
+                        position: {
+                          lat: 39.106221,
+                          lng: -77.030811
+                        },
+                        rating: "****4.8",
+                        tables: {
+                          0: {
+                            cover: "../media/img/tampax.png",
+                            productName: "Clearblue Rapid Detection Pregnancy Test (2)",
+                            productMetaData: {
+                              store: "FemCare",
+                              item: "Clearblue Rapid Detection Pregnancy Test",
+                              method: "Deliver",
+                              target: "Pangaea"
+                            }
+                          }
+                        },
+                        widgetOptions: {
+                          0: 1
+                        },
+                        zoom: true
+                    },
+                    name: "Clearblue Pregnancy Test",
+                    description: "",
+                    weight: {
+                      datum: 1,
+                      unit: "gram"
+                    },
+                    type: "image/png",
+                    src: "../media/img/clearblue-logo.png.png",
+                    controller: "design-cover-4-container"
+                }
+            ],
+            count: 5,
+            addExhibit: function(exhibitName, exhibitType, exhibitSrc){
+                var self = this;
+                self.exhibitList.push({name: exhibitName, type: exhibitType, src: exhibitSrc});
+                self.count++;
+                return true;
+            },
+            onExhibit: 0
+        };
+
+        document.addEventListener("DOMContentLoaded", function(){
+
+            document.getElementById("toggle-audio-playback-button-container").addEventListener("click", function(){
+                let audioPlayer = document.getElementById("xr-audio-player-container");
+                let toggleButton = document.getElementById("toggle-audio-playback-button-container");
+                if(XRGallery.open){
+                  // select current gallery item for order
+                  let selectedItemIndex = XRGallery.onExhibit;
+                  let selectedItem = XRGallery.exhibitList[selectedItemIndex].dbFill;
+                  console.log(`Ordered one unit of ${selectedItem.name}.\nRedirecting to map once receipt acknowledged...`);
+
+                  selectedItem.name = selectedItem.name+` ${orderCount}`;
+                  selectedItem.pointer = selectedItem.pointer+`${orderCount}`;
+
+                  console.log(selectedItem);
+
+                  let orderId = "order-"+orderCount;
+                  firebase.database().ref('orders/' + orderId).set(selectedItem);
+
+                  document.getElementById("success-container").style.display = "block";
+                  setTimeout(function(){
+                      document.getElementById("success-container").style.display = "none";
+                      window.location.href = "./preview";
+                  }, 5000);
+                }
+                else{
+                    document.getElementById("landing-object-container").setAttribute("visible", false);
+
+                    document.getElementById("design-cover-0-container").setAttribute("visible", true);
+                    /*document.getElementById("design-cover-1-container").setAttribute("visible", true);
+                    document.getElementById("design-cover-2-container").setAttribute("visible", true);
+                    document.getElementById("design-cover-3-container").setAttribute("visible", true);
+                    document.getElementById("design-cover-4-container").setAttribute("visible", true);*/
+                    XRGallery.open = true;
+                }
+            });
+
+            document.getElementById("back-button-container").addEventListener("click", function(){
+              if(XRGallery.open){
+                document.getElementById("landing-object-container").setAttribute("visible", true);
+                document.getElementById(`design-cover-${XRGallery.onExhibit}-container`).setAttribute("visible", false);
+                if(XRGallery.onExhibit===3){
+                    document.getElementById(`design-cover-3-support-container`).setAttribute("visible", false);
+                }
+                XRGallery.onExhibit = 0;
+                XRGallery.open = false;
+              }
+            });
+
+            document.getElementById("select-previous-item-button-container").addEventListener("click", function(){
+              let currentDesign = XRGallery.onExhibit;
+              if(XRGallery.open){
+                if(currentDesign>0){
+                    document.getElementById(XRGallery.exhibitList[currentDesign].controller).setAttribute("visible", false);
+                    document.getElementById(XRGallery.exhibitList[currentDesign-1].controller).setAttribute("visible", true);
+                    XRGallery.onExhibit--;
+                    if(XRGallery.onExhibit===3){
+                        document.getElementById("design-cover-3-support-container").setAttribute("visible", true);
+                    }
+                    if(XRGallery.onExhibit===2){
+                        document.getElementById("design-cover-3-support-container").setAttribute("visible", false);
+                    }
+                }
+                else{
+                    console.log("already at ", XRGallery.onExhibit);
+                }
+              }
+              else{
+                console.log("gallery closed");
+              }
+            });
+
+            document.getElementById("select-next-item-button-container").addEventListener("click", function(){
+              let currentDesign = XRGallery.onExhibit;
+              if(XRGallery.open){
+                if(currentDesign<XRGallery.count-1){
+                    document.getElementById(XRGallery.exhibitList[currentDesign].controller).setAttribute("visible", false);
+                    document.getElementById(XRGallery.exhibitList[currentDesign+1].controller).setAttribute("visible", true);
+                    XRGallery.onExhibit++;
+                    if(XRGallery.onExhibit===3){
+                        document.getElementById("design-cover-3-support-container").setAttribute("visible", true);
+                    }
+                    if(XRGallery.onExhibit===4){
+                        document.getElementById("design-cover-3-support-container").setAttribute("visible", false);
+                    }
+                }
+                else{
+                    console.log("already at ", XRGallery.onExhibit);
+                }
+              }
+              else{
+                console.log("gallery closed");
+              }
+            });
+
+            document.getElementById("return-to-pangaea-map-button-container").addEventListener("click", function(){
+                window.location.href = "./preview";
+            });
+
+            document.getElementById("return-to-experience-lobby-button-container").addEventListener("click", function(){
+                window.location.href = "./femcare";
+            });
+
+            document.getElementById("go-to-pangaea-shop-button-container").addEventListener("click", function(){
+                window.location.href = "../pangaea/femcare";
+            });
+        });
+    </script>
+</body>
+</html>

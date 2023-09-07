@@ -143,6 +143,8 @@ body, html, #main-app-container{
     margin: 2% auto;
     display: block;
     vertical-align: top;
+    font-size: 18px;
+    font-family: "Braah One", sans-serif;
     text-align: justify;
 }
 
