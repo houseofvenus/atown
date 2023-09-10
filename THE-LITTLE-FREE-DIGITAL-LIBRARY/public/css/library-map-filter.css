@@ -131,6 +131,34 @@
     background-image: url(../media/img/dynamics-of-faith-book-cover.png);
 }
 
+#miss-emily-book-option-container{
+    background-image: url(../media/img/miss-emily-book-cover.png);
+}
+
+#desert-queen-book-option-container{
+    background-image: url(../media/img/desert-queen-book-cover.png);
+}
+
+#a-woman-in-arabia-book-option-container{
+    background-image: url(../media/img/a-woman-in-arabia-book-cover.png);
+}
+
+#the-black-country-book-option-container{
+    background-image: url(../media/img/the-black-country-book-cover.png);
+}
+
+#the-logical-basis-of-metaphysics-book-option-container{
+    background-image: url(../media/img/the-logical-basis-of-metaphysics-book-cover.png);
+}
+
+#the-devils-workshop-book-option-container{
+    background-image: url(../media/img/the-devils-workshop-book-cover.png);
+}
+
+#mauds-line-book-option-container{
+    background-image: url(../media/img/mauds-line-book-cover.png);
+}
+
 .book-option-button-container{
     background-size: auto 80%;
     display: inline-block;
