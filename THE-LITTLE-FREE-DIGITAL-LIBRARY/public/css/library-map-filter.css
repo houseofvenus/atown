@@ -71,7 +71,6 @@
     background-image: url(../media/img/l4yer-cake-book-cover.png);
 }
 
-
 #dragons-heart-book-option-container{
     background-image: url(../media/img/dragons-heart-book-cover.png);
 }
@@ -110,6 +109,26 @@
 
 #the-theatre-of-the-absurd-book-option-container{
     background-image: url(../media/img/the-theatre-of-the-absurd-book-cover.png);
+}
+
+#stealth-of-nations-book-option-container{
+    background-image: url(../media/img/stealth-of-nations-book-cover.png);
+}
+
+#extreme-ownership-book-option-container{
+    background-image: url(../media/img/extreme-ownership-book-cover.png);
+}
+
+#the-house-on-mango-street-book-option-container{
+    background-image: url(../media/img/the-house-on-mango-street-book-cover.png);
+}
+
+#guardians-of-gahoole-capture-book-option-container{
+    background-image: url(../media/img/guardians-of-gahoole-capture-book-cover.png);
+}
+
+#dynamics-of-faith-book-option-container{
+    background-image: url(../media/img/dynamics-of-faith-book-cover.png);
 }
 
 .book-option-button-container{
