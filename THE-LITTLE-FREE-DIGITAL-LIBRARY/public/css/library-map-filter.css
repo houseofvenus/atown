@@ -1,3 +1,64 @@
+
+#library-menu-container{
+    z-index: -1;
+    display: none;
+    width: 400px;
+    height: auto;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-left: -200px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+}
+
+#library-menu-button-container{
+    z-index: 999;
+    display: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    background-image: url(../media/img/hov-ig-logo.png);
+    background-size: 100% 100%;
+    outline: none;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+
+.library-menu-option-container{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    border: 0;
+    background-color: white;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+.libary-menu-option-container::active{
+    color: white;
+    background-color: blue;
+}
+
+#vision-page-button-container{
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px gray solid;
+}
+
+#add-new-librarian-page-button-container{
+    border-radius: 0 0 10px 10px;
+    border-top: 1px gray solid;
+}
+
 .header-container{
     width: 100%;
     height: 50px;
@@ -157,6 +218,10 @@
 
 #mauds-line-book-option-container{
     background-image: url(../media/img/mauds-line-book-cover.png);
+}
+
+#the-curly-pyjama-letters-book-option-container{
+    background-image: url(../media/img/the-curly-pyjama-letters-book-cover.png);
 }
 
 .book-option-button-container{
@@ -524,11 +589,12 @@
         height: 75px;
         bottom: 0;
         right: 0;
+        padding: 15px;
+        font-size: 16px;
         /*font-family: "Braah One", sans-serif;
         position: absolute;
         z-index: 999;
         border: 0;
-        padding: 30px;
         border-radius: 10px;
         background-color: rgba(0, 0, 0, 0.7);
         color: white;
@@ -552,4 +618,16 @@
         height: 300px;
         overflow-y: scroll;
     }
+    
+    #library-menu-container{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: 0;
+        border: 0;
+        border-radius: 0;
+    }
+
 }

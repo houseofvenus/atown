@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../media/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../media/icon/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
+    <title>v. 0.0.1.0</title>
+    <link rel ="stylesheet" type="text/css" href="../css/PublicAugmentedRealityKinectome.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+   crossorigin=""/>
+    <link rel="stylesheet" type="text/css" href="../css/library-map-filter.css" />
+</head>
+<body>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
+    <script>
+        var storage, database;
+
+        const config = {
+          apiKey: "AIzaSyAzqXRxpmI9K7UMTsiuFU6b54SkSjNojkU",
+          authDomain: "lyoko-blockchain.firebaseapp.com",
+          databaseURL: "https://lyoko-blockchain-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "lyoko-blockchain",
+          storageBucket: "lyoko-blockchain.appspot.com",
+          messagingSenderId: "820284895954",
+          appId: "1:820284895954:web:e69039cadfd002bc15b30b"
+        };
+        
+      
+        firebase.initializeApp(config);
+
+        firebase.auth().signInWithEmailAndPassword("traderjoesdeliverydc@gmail.com", "L3R0!duL0@ng0")
+          .then((userCredential) => {
+            // Signed in
+            console.log("signed in");
+            var user = userCredential.user;
+            //console.log(user);
+            // ...
+          })
+          .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+          });
+
+        window.addEventListener("load", function(){
+          console.log("content loaded");
+        });
+
+        document.addEventListener("DOMContentLoaded", function(){
+            
+        });
+
+    </script>
+</body>
+</html>

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
-    <title>v. 0.9.4.c</title>
+    <title>v. 0.9.8.0</title>
     <link rel ="stylesheet" type="text/css" href="../css/PublicAugmentedRealityKinectome.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -74,8 +74,12 @@
         </div>
         
         
-        
-        <div id="create-account-button-container" class="create-button-container"></div>
+        <div id="library-menu-container">
+            <button id="vision-page-button-container" class="library-menu-option-container" onmouseover="menuButtonHover(this)" onmouseout="menuButtonHoverOut(this)">Our Vision</button>
+            <button id="add-new-library-page-button-container" class="library-menu-option-container"  onmouseover="menuButtonHover(this)" onmouseout="menuButtonHoverOut(this)">+ Add New Library 📚</button>
+            <button id="add-new-librarian-page-button-container" class="library-menu-option-container" onmouseover="menuButtonHover(this)" onmouseout="menuButtonHoverOut(this)">+ Add New Librarian 🧑🏽‍🏫</button>
+        </div>
+        <button id="library-menu-button-container"></button>
         <div id="map" class="layer-container base-layer-container">
         </div>
     </div>
@@ -182,7 +186,6 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                         <button id="a-history-of-the-modern-middle-east-book-option-container" class="book-option-button-container"></button>
                         <button id="total-immersion-book-option-container" class="book-option-button-container"></button>
 
-<button id="the-theatre-of-the-absurd-book-option-container" class="book-option-button-container"></button>
 <button id="stealth-of-nations-book-option-container" class="book-option-button-container"></button>
 <button id="extreme-ownership-book-option-container" class="book-option-button-container"></button>
 <button id="the-house-on-mango-street-book-option-container" class="book-option-button-container"></button>
@@ -195,6 +198,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 <button id="the-logical-basis-of-metaphysics-book-option-container" class="book-option-button-container"></button>
 <button id="the-devils-workshop-book-option-container" class="book-option-button-container"></button>
 <button id="mauds-line-book-option-container" class="book-option-button-container"></button>
+<button id="the-curly-pyjama-letters-book-option-container" class="book-option-button-container"></button>
                         </div>`
                     })
                 }
@@ -344,43 +348,280 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                 
                 document.getElementById("dragons-heart-book-option-container").addEventListener("click", function(){
                     document.getElementById("member-options-container").innerHTML = "<h3>Dragon's Heart</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Austar IV isn't the planet it once was, and when Jakkin and Akki finally return to the dragon nursery, their homecoming arouses mixed emotions...</p><p>1 count</p><button id='dragons-heart-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-dragons-heart-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('dragons-heart-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Dragons-Heart.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-dragons-heart-book-button-container').addEventListener("click", function(){
+                        console.log(`Check Out "Dragon's Heart"`);
+                    });
                 });
                 
                 document.getElementById("father-of-the-bride-book-option-container").addEventListener("click", function(){
                     document.getElementById("member-options-container").innerHTML = "<h3>Father of the Bride</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>The New York Times bestselling classic tale about modern marriage and the basis for the popular films is now back in print!</p><p class='popup-description-container'>Poor Mr. Banks! His jacket is too tight, he can’t get a cocktail, and he’s footing the bill...He’s the father of the bride.</p><p>1 count</p><button id='father-of-the-bride-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-father-of-the-bride-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('father-of-the-bride-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Father-Of-The-Bride.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-father-of-the-bride-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Father of the Bride'");
+                    });
                 });
                 
                 document.getElementById("key-west-connection-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>Key West Connection</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='key-west-connection-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-key-west-connection-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    document.getElementById("member-options-container").innerHTML = "<h3>Key West Connection</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>A violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare.</p><p>1 count</p><button id='key-west-connection-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-key-west-connection-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('key-west-connection-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Key-West-Connection.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-key-west-connection-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Key West Connection'");
+                    });
                 });
                 
                 document.getElementById("critique-of-pure-reason-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>Critique of Pure Reason</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='critique-of-pure-reason-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-critique-of-pure-reason-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    document.getElementById("member-options-container").innerHTML = "<h3>Critique of Pure Reason</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Kant seeks to determine the limits and scope of metaphysics. Also referred to as Kant's 'First Critique', it is followed by his Critique of Practical Reason and Critique of Judgment.</p><p>1 count</p><button id='critique-of-pure-reason-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-critique-of-pure-reason-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('critique-of-pure-reason-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Critique-Of-Pure-Reason.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-critique-of-pure-reason-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Critique of Pure Reason'");
+                    });
                 });
                 
                 document.getElementById("time-and-the-other-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>Time and the Other</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='time-and-the-other-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-time-and-the-other-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    document.getElementById("member-options-container").innerHTML = "<h3>Time and the Other</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>A classic work that critically reexamined the relationship between anthropologists and their subjects and reoriented the approach literary critics, philosophers, and historians took to the study of humankind.</p><p>1 count</p><button id='time-and-the-other-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-time-and-the-other-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('time-and-the-other-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Time-And-The-Other.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-time-and-the-other-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Time and the Other'");
+                    });
                 });
                 
                 document.getElementById("stop-dressing-your-six-year-old-like-a-skank-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>Stop Dressing Your Six Year Old Like a Skank</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='stop-dressing-your-six-year-old-like-a-skank-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-stop-dressing-your-six-year-old-like-a-skank-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    document.getElementById("member-options-container").innerHTML = "<h3>Stop Dressing Your Six Year Old Like a Skank</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Rivenbark is an intrepid explorer and acid commentator on the land south of the Mason-Dixon Line. Her essays about life in today's South are like caramel popcorn---sweet, salty, and utterly irresistible.</p><p>1 count</p><button id='stop-dressing-your-six-year-old-like-a-skank-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-stop-dressing-your-six-year-old-like-a-skank-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('stop-dressing-your-six-year-old-like-a-skank-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Stop-Dressing-Your-Six-Year-Old-Like-A-Skank.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-stop-dressing-your-six-year-old-like-a-skank-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Stop Dressing Your Six Year Old Like A Skank'");
+                    });
                 });
                 
                 document.getElementById("the-theatre-of-the-absurd-book-option-container").addEventListener("click", function(){
-                    document.getElementById("member-options-container").innerHTML = "<h3>The Theatre of the Absurd</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='the-theatre-of-the-absurd-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-theatre-of-the-absurd-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    document.getElementById("member-options-container").innerHTML = "<h3>The Theatre of the Absurd</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Analyzes and describes those fundamental characteristics which seem to be present in the works of such major playwrights as Beckett, Pinter, Ionesco, Brecht and Albee.</p><p>1 count</p><button id='the-theatre-of-the-absurd-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-theatre-of-the-absurd-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('the-theatre-of-the-absurd-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/The-Theatre-Of-The-Absurd.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-the-theatre-of-the-absurd-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'The Theatre of the Absurd'");
+                    });
                 });
                 
                 document.getElementById("on-the-plurality-of-worlds-book-option-container").addEventListener("click", function(){
                     document.getElementById("member-options-container").innerHTML = "<h3>On the Plurality of Worlds</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='on-the-plurality-of-worlds-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-on-the-plurality-of-worlds-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('on-the-plurality-of-worlds-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/On-The-Plurality-Of-Worlds.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-on-the-plurality-of-worlds-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'On the Plurality of Worlds'");
+                    });
                 });
                 
                 document.getElementById("a-history-of-the-modern-middle-east-book-option-container").addEventListener("click", function(){
                     document.getElementById("member-options-container").innerHTML = "<h3>A History of the Modern Middle East</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='a-history-of-the-modern-middle-east-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-a-history-of-the-modern-middle-east-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('a-history-of-the-modern-middle-east-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/A-History-Of-The-Modern-Middle-East.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-a-history-of-the-modern-middle-east-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'A History of the Modern Middle East'");
+                    });
                 });
                 
                 document.getElementById("total-immersion-book-option-container").addEventListener("click", function(){
                     document.getElementById("member-options-container").innerHTML = "<h3>Total Immersion: The Revolutionary Way To Swim Better, Faster, and Easier</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='total-immersion-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-total-immersion-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('total-immersion-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Total-Immersion.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-total-immersion-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Total Immersion'");
+                    });
                 });
+                
+                document.getElementById("stealth-of-nations-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Stealth of Nations</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='stealth-of-nations-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-stealth-of-nations-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('stealth-of-nations-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Stealth-Of-Nations.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-stealth-of-nations-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Stealth of Nations'");
+                    });
+                });
+                
+                document.getElementById("extreme-ownership-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Extreme Ownership</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a violent plunge into the depths of the Gulf Stream as one man’s vengeance becomes another’s worst nightmare...</p><p>1 count</p><button id='extreme-ownership-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-extreme-ownership-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('extreme-ownership-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Extreme-Ownership.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-extreme-ownership-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Extreme Ownership'");
+                    });
+                });
+                
+                document.getElementById("the-house-on-mango-street-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The House on Mango Street</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>the house on mango street...</p><p>1 count</p><button id='the-house-on-mango-street-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-house-on-mango-street-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('the-house-on-mango-street-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/The-House-On-Mango-Street.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-the-house-on-mango-street-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'The House on Mango Street'");
+                    });
+                });
+                
+                document.getElementById("guardians-of-gahoole-capture-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Guardians of Ga'Hoole: Capture</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Book 1 in the Guardians of Ga'Hoole Series...</p><p>1 count</p><button id='guardians-of-gahoole-capture-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-guardians-of-gahoole-capture-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('guardians-of-gahoole-capture-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Guardians-Of-Gahoole-Capture.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-guardians-of-gahoole-capture-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Guardians of Ga hoole: Capture'");
+                    });
+                });
+                
+                document.getElementById("dynamics-of-faith-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The Dynamics of Faith</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>the dynamics of faith...</p><p>1 count</p><button id='dynamics-of-faith-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-dynamics-of-faith-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('dynamics-of-faith-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Dynamics-Of-Faith.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-dynamics-of-faith-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Dynamics of Faith'");
+                    });
+                });
+                
+                document.getElementById("miss-emily-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Miss Emily</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Miss Emily...</p><p>1 count</p><button id='miss-emily-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-miss-emily-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('miss-emily-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Miss-Emily.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-miss-emily-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Miss Emily'");
+                    });
+                });
+                
+                document.getElementById("desert-queen-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Desert Queen</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>desert queen...</p><p>1 count</p><button id='desert-queen-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-desert-queen-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('desert-queen-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Desert-Queen.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-desert-queen-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Desert Queen'");
+                    });
+                });
+                
+                document.getElementById("a-woman-in-arabia-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>A Woman in Arabia</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>a woman in arabia...</p><p>1 count</p><button id='a-woman-in-arabia-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-a-woman-in-arabia-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('a-woman-in-arabia-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/A-Woman-In-Arabia.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-a-woman-in-arabia-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'A Woman In Arabia'");
+                    });
+                });
+                
+                document.getElementById("the-black-country-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The Black Country</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>the black country...</p><p>1 count</p><button id='the-black-country-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-black-country-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('the-black-country-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/The-Black-Country.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-the-black-country-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'The Black Country'");
+                    });
+                });
+                
+                document.getElementById("the-logical-basis-of-metaphysics-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The Logical Basis of Metaphysics</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>the logical basis of metaphysics..</p><p>1 count</p><button id='the-logical-basis-of-metaphysics-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-logical-basis-of-metaphysics-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('the-logical-basis-of-metaphysics-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/The-Logical-Basis-Of-Metaphysics.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-the-logical-basis-of-metaphysics-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'The Logical Basis of Metaphysics'");
+                    });
+                });
+                
+                document.getElementById("the-devils-workshop-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The Devil's Workshop</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>the devil's workshop...</p><p>1 count</p><button id='the-devils-workshop-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-devils-workshop-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('the-devils-workshop-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/The-Devils-Workshop.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-the-devils-workshop-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'The Devils Workshop'");
+                    });
+                });
+                
+                document.getElementById("mauds-line-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Maud's Line</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>maud's line...</p><p>1 count</p><button id='mauds-line-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-mauds-line-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('mauds-line-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/Mauds-Line.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-mauds-line-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'Mauds Line'");
+                    });
+                });
+                
+                document.getElementById("the-curly-pyjama-letters-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The Curly Pyjama Letters</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>the curly pyjama letters...</p><p>1 count</p><button id='the-curly-pyjama-letters-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-curly-pyjama-letters-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById('the-curly-pyjama-letters-digital-link-container').addEventListener("click", function(){
+                        window.open("./media/book/The-Curly-Pyjama-Letters.pdf", "_blank");
+                    });
+                    
+                    document.getElementById('check-out-the-curly-pyjama-letters-book-button-container').addEventListener("click", function(){
+                        console.log("Check Out 'The Curly Pyjama Letters'");
+                    });
+                });
+                
             });
             
             LittleFreeDigitalLibrary[2].marker.on("popupclose", function(){
@@ -403,8 +644,39 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             memberOptionsContainer.innerHTML = "<h3>The Little Free Digital Library</h3><p>Hello World! Click on an icon to start.</p><br/><h3>Key</h3><p>📚 Library</p><p>🧑🏽‍🏫 , 🚁Librarian</p>";
             document.getElementById("main-app-container").append(memberOptionsContainer);
             
+            document.getElementById("library-menu-button-container").style.display = "block";
+            
+            document.getElementById("library-menu-button-container").addEventListener("click", function(){
+                toggleLibraryMenu();
+            });
+            
             document.getElementById("user-access-layer-container").style.display = "none";
             document.getElementById("user-access-layer-container").style.zIndex = "-1";
+        }
+        
+        var libraryMenuIsVisible = false;
+        
+        function menuButtonHover(item){
+            item.style.color = "white";
+            item.style.backgroundColor = "black";
+        }
+        
+        function menuButtonHoverOut(item){
+            item.style.color = "black";
+            item.style.backgroundColor = "white";
+        }
+        
+        function toggleLibraryMenu(){
+            if(libraryMenuIsVisible){
+                document.getElementById("library-menu-container").style.display = "none";
+                document.getElementById("library-menu-container").style.zIndex = -1;
+                libraryMenuIsVisible = false;
+            }
+            else{
+                document.getElementById("library-menu-container").style.display = "block";
+                document.getElementById("library-menu-container").style.zIndex = 999;
+                libraryMenuIsVisible = true;
+            }
         }
         
         function onMapClick(e) {
