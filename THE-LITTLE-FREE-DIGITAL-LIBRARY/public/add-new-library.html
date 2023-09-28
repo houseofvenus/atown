@@ -9,18 +9,117 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
-    <title>v. 0.0.1.0</title>
+    <title>v. 0.0.3.f</title>
+    <style>
+        * {
+            font-family: "Braah One", sans-serif;
+        }
+        
+        .add-map-node-stage-container{
+            width: 500px;
+            height: auto;
+            display: block;
+            margin: 3% auto 0 auto;
+        }
+        
+        .stage-title-container{
+            width: 100%;
+            height: 35px;
+            font-size: 20px;
+            line-height: 35px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        
+        #add-library-photo-button-container{
+            width: 75px;
+            height: 75px;
+            border: 1px black solid;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+            text-align: center;
+            line-height: 75px;
+            font-size: 22px;
+            display: block;
+            margin: 50px auto 1% auto;
+            outline: none;
+            text-transform: uppercase;
+        }
+        
+        #stage-01-title-container, #stage-02-title-container{
+            display: none;
+        }
+        
+        #add-library-address-stage-container{
+            display: none;
+        }
+        
+        #library-address-input-container, #libary-name-input-container{
+            width: 300px;
+            height: 35px;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        #start-over-button-container, #finish-button-container{
+            width: 300px;
+            display: block;
+            margin: 2% auto;
+            cursor: pointer;
+            height: 35px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 35px;
+            background-color: white;
+            color: black;
+            transition: background-color 0.25s, color 0.25s;
+        }
+        
+        #start-over-button-container:hover, #finish-button-container:hover{
+            color: white;
+            background-color: black;
+        }
+        
+        #finish-button-container{
+            display: none;
+        }
+        
+        .photo-input-container{
+            display: none;
+        }
+        
+    </style>
 </head>
 <body>
     <div id="add-new-library-menu-container">
         <div id="add-library-photos-stage-container" class="stage-0-container add-map-node-stage-container">
             <div id="stage-0-title-container" class="stage-title-container">
-                Add a Photo of the Library with the Door Closed
+                Take a Photo of the Library with the Door(s) Closed
             </div>
-            <button id="add-library-photo-button-container"></button>
+            <div id="stage-01-title-container" class="stage-title-container">
+                Take a Photo of the Library with the Door(s) Open
+            </div>
+            <div id="stage-02-title-container" class="stage-title-container">
+                Take a Close Up Photo of the Library with the Door(s) Open
+            </div>
+            <button id="add-library-photo-button-container">Add</button>
+            <input type="file" id="photo-0-input-container" class="photo-input-container" accept="image/png, image/jpeg" />
+            <input type="file" id="photo-1-input-container" class="photo-input-container" accept="image/png, image/jpeg" />
+            <input type="file" id="photo-2-input-container" class="photo-input-container" accept="image/png, image/jpeg" />
         </div>
         <div id="add-library-address-stage-container" class="stage-1-container add-map-node-stage-container">
-            
+            <h3 style="width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Add the Library's Meta Data</h3>
+            <p style="width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Full Address (one line)</p>
+            <input type="text" id="library-address-input-container" placeholder="1600 Pennsylvania Avenue NW, Washington, D.C. 20010" />
+            <p style="width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Library Name</p>
+            <input type="text" id="libary-name-input-container" placeholder="Patrice-Morgan's Library" />
+        </div>
+        <div class="stage-2-container add-map-node-stage-container">
+            <button id="start-over-button-container" class="add-photo-button-container">Start Over</button>
+            <button id="finish-button-container" class="add-photo-button-container">Finish</button>
         </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
@@ -56,22 +155,39 @@
           });
 
         var Stages = [
-            {
-                title: "Add a Photo of the Library with the Door Closed"
-            },
-            {
-                title: "Add a Photo of the Library with the Door Open"
-            },
-            {
-                title: "Add a Photo of the Library with the Door Closed"
-            }
+            "stage-0-title-container",
+            "stage-01-title-container",
+            "stage-02-title-container"
+        ];
+        
+        var PhotoInput = [
+            "photo-0-input-container",
+            "photo-1-input-container",
+            "photo-2-input-container"
         ]
+        
+        var onStage = 0;
         window.addEventListener("load", function(){
           console.log("content loaded");
         });
 
         document.addEventListener("DOMContentLoaded", function(){
+            document.getElementById("add-library-photo-button-container").addEventListener("click", function(){
+                document.getElementById(Stages[onStage]).style.display = "none";
+                document.getElementById(PhotoInput[onStage]).click();
+                onStage++;
+                if(onStage<3){
+                    document.getElementById(Stages[onStage]).style.display = "block";
+                }
+                else{
+                    document.getElementById("add-library-photos-stage-container").style.display = "none";
+                    document.getElementById("add-library-address-stage-container").style.display = "block";
+                }
+            });
             
+            document.getElementById("start-over-button-container").addEventListener("click", function(){
+                location.reload();
+            });
         });
 
     </script>

@@ -17,7 +17,25 @@
     <link rel="stylesheet" type="text/css" href="../css/library-map-filter.css" />
 </head>
 <body>
-    
+    <div id="stage-0-container">
+        <h3>Take 3 to 5 photos of the Library</h3>
+        <button id="photo-0-button-container" class="add-photo-button-container">+</button>
+        <button id="photo-1-button-container" class="add-photo-button-container">+</button>
+        <button id="photo-2-button-container" class="add-photo-button-container">+</button>
+        <button id="photo-3-button-container" class="add-photo-button-container">+</button>
+        <button id="photo-4-button-container" class="add-photo-button-container">+</button>
+    </div>
+    <div id="stage-1-container">
+        <h3>Add the Library's meta data</h3>
+        <p>Full Address (one line)</p>
+        <input type="text" placeholder="1600 Pennsylvania Avenue NW, Washington, D.C. 20010" />
+        <p>Library Name</p>
+        <input type="text" placeholder="Patrice-Morgan's Library" />
+    </div>
+    <div id="stage-2-container">
+        <button id="go-back-button-container" class="add-photo-button-container">Go Back</button>
+        <button id="done-button-container" class="add-photo-button-container">Done</button>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
