@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
-    <title>v. 0.9.8.a</title>
+    <title>v. 0.12.0.a</title>
     <link rel ="stylesheet" type="text/css" href="../css/PublicAugmentedRealityKinectome.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -125,7 +125,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                         iconUrl: './media/img/library-icon.png',
                         iconSize: [100, 80],
                         popupAnchor: [38.929135, -77.035661]
-                    }),
+                    })
                 },
                 {
                     name: "Patrice-Morgan's Library",
@@ -141,7 +141,15 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                         iconUrl: './media/img/library-icon.png',
                         iconSize: [100, 80],
                         popupAnchor: [38.933563, -77.038869]
-                    }),
+                    })
+                },
+                {
+                    name: "Youth Build Library",
+                    icon: L.icon({
+                        iconUrl: './media/img/library-icon.png',
+                        iconSize: [100, 80],
+                        popupAnchor: [38.931320, -77.036810]
+                    })
                 }
             ];
             
@@ -150,7 +158,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     name: "Harvard St Library",
                     marker: L.marker([38.926350, -77.036692], {icon: LittleFreeDigitalLibraryIconMap[0].icon}),
                     popup: L.popup([38.926350, -77.036692], {
-                        content: `<h3 id="harvard-st-library-header-container" class="header-container">Harvard St Library</h3><div class="header-icon-container" id="harvard-st-library-header-icon-container"></div><div class="library-catalog-container">
+                        content: `<h3 id="harvard-st-library-header-container" class="header-container">Harvard St Library</h3><div class="header-icon-container" id="harvard-st-library-header-icon-container"></div><div class="library-catalog-container smooth-scroll">
                         <button id="table-tennis-balls-option-container" class="option-button-container"></button>
                         <button id="natty-boh-1-option-container" class="option-button-container"></button>
                         <button id="pbr-1-option-container" class="option-button-container"></button></div>`
@@ -160,7 +168,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     name: "Patrice-Morgan's Library",
                     marker: L.marker([38.932696, -77.039743], {icon: LittleFreeDigitalLibraryIconMap[1].icon}),
                     popup: L.popup([38.932696, -77.039743], {
-                        content: `<h3 id="pm-library-header-container" class="header-container">Patrice-Morgan's Library</h3><div id="pm-library-header-icon-container" class="header-icon-container"></div><div id="pm-library-catalog-container">
+                        content: `<h3 id="pm-library-header-container" class="header-container">Patrice-Morgan's Library</h3><div id="pm-library-header-icon-container" class="header-icon-container"></div><div id="pm-library-catalog-container" class="library-catalog-container smooth-scroll">
                         <button id="because-of-sex-book-option-container" class="book-option-button-container"></button>
                         <button id="the-house-of-scorpion-book-option-container" class="book-option-button-container"></button>
                         <button id="the-nazi-seizure-of-power-book-option-container" class="book-option-button-container"></button>
@@ -173,7 +181,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     name: "KT's Library",
                     marker: L.marker([38.933563, -77.038869], {icon: LittleFreeDigitalLibraryIconMap[2].icon}),
                     popup: L.popup([38.933563, -77.038869], {
-                        content: `<h3 id="kt-library-header-container" class="header-container">KT's Library</h3><div id="kt-library-header-icon-container" class="header-icon-container"></div><div id="pm-library-catalog-container">
+                        content: `<h3 id="kt-library-header-container" class="header-container">KT's Library</h3><div id="kt-library-header-icon-container" class="header-icon-container"></div><div id="kts-library-catalog-container" class="library-catalog-container smooth-scroll">
                         <button id="from-farmland-to-streetlevel-book-1-option-container" class="book-option-button-container"></button>
                         <button id="dragons-heart-book-option-container" class="book-option-button-container"></button>
                         <button id="father-of-the-bride-book-option-container" class="book-option-button-container"></button>
@@ -199,6 +207,23 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 <button id="the-devils-workshop-book-option-container" class="book-option-button-container"></button>
 <button id="mauds-line-book-option-container" class="book-option-button-container"></button>
 <button id="the-curly-pyjama-letters-book-option-container" class="book-option-button-container"></button>
+                        </div>`
+                    })
+                },
+                {
+                    name: "Youth Build Library",
+                    marker: L.marker([38.931320, -77.036810], {
+                        icon: LittleFreeDigitalLibraryIconMap[3].icon
+                    }),
+                    popup: L.popup([38.931320, -77.036810], {
+                        content: `<h3 id="youth-build-library-header-container" class="header-container">Youth Build Library</h3><div id="youth-build-library-header-icon-container" class="header-icon-container"></div><div id="youth-build-library-catalog-container" class="library-catalog-container smooth-scroll">
+                        <button id="the-false-prophet-book-option-container" class="book-option-button-container"></button>
+                        <button id="el-viento-travieso-book-option-container" class="book-option-button-container"></button>
+                        <button id="bayes-theorem-a-visual-intro-book-option-container" class="book-option-button-container"></button>
+                        <button id="american-sniper-book-option-container" class="book-option-button-container"></button>
+                        <button id="the-future-of-an-illusion-book-option-container" class="book-option-button-container"></button>
+                        <button id="communities-book-option-container" class="book-option-button-container"></button>
+                        <button id="jacobin-mag-summer-2023-book-option-container" class="book-option-button-container"></button>
                         </div>`
                     })
                 }
@@ -629,9 +654,106 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             });
             
             
+            LittleFreeDigitalLibrary[3].marker.bindPopup(LittleFreeDigitalLibrary[3].popup);
+            
+             LittleFreeDigitalLibrary[3].marker.on("popupopen", function(){
+                document.getElementById("member-options-container").innerHTML = "<h3>Youth Build Library</h3><p class='popup-description-container'>Welcome to the Youth Build Library of the DC International School in Mt Pleasant! Feel free to explore, share, and borrow from my collection.</p><p>🚁 Hours</p><h5>05:30PM to 11:00PM</h5><p>📚 Hours</p><h5>Open 24/7</h5>";
+                 
+                document.getElementById("the-false-prophet-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The False Prophet: From FBI Informant to Knesset Member</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>This book exposes a warrior-priest who thrives on the tensions generated by racial and political upheaval. It provides a looking glass into the dark side of Israel's soul.</p><p>1 count</p><button id='the-false-prophet-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-false-prophet-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("the-false-prophet-digital-link-container").addEventListener("click", function(){
+                        window.open("./media/book/The-False-Prophet.pdf", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-the-false-prophet-book-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'The False Prophet'");
+                    });
+                });
+                 
+                document.getElementById("el-viento-travieso-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>El Viento Travieso</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>A mischievous wind decides to blow all kinds of things around.</p><p>1 count</p><button id='el-viento-travieso-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-el-viento-travieso-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("el-viento-travieso-digital-link-container").addEventListener("click", function(){
+                        window.open("https://shop.scholastic.com/teachers-ecommerce/teacher/books/el-viento-travieso-9780590619684.html", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-the-false-prophet-book-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'El Viento Travieso'");
+                    });
+                });
+                 
+                document.getElementById("bayes-theorem-a-visual-intro-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Bayes Theorem: A Visual Introduction For Beginners</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>If you are a visual learner and like to learn by example, this intuitive Bayes' Theorem 'for dummies' type book is a good fit for you.</p><p>1 count</p><button id='bayes-theorem-a-visual-intro-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-bayes-theorem-a-visual-intro-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("bayes-theorem-a-visual-intro-digital-link-container").addEventListener("click", function(){
+                        window.open("./media/book/Bayes-Theorem-A-Visual-Introduction.pdf", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-bayes-theorem-a-visual-intro-book-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'Bayes Theorem: A Visual Introduciton'");
+                    });
+                });
+                 
+                document.getElementById("american-sniper-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>American Sniper: The Autobiography of the Most Lethal Sniper in U.S. Military History</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Gripping and unforgettable, Kyle’s masterful account of his extraordinary battlefield experiences ranks as one of the most insightful war memoirs about the early 21st century American interventions in  Iraq and Afghanistan.</p><p>1 count</p><button id='american-sniper-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-american-sniper-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("american-sniper-digital-link-container").addEventListener("click", function(){
+                        window.open("./media/book/American-Sniper.pdf", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-american-sniper-book-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'American Sniper'");
+                    });
+                });
+                 
+                document.getElementById("the-future-of-an-illusion-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>The Future of an Illusion</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'></p><p>1 count</p><button id='the-future-of-an-illusion-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-the-future-of-an-illusion-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("the-future-of-an-illusion-digital-link-container").addEventListener("click", function(){
+                        window.open("./media/book/The-Future-Of-An-Illusion.pdf", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-the-future-of-an-illusion-book-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'The Future of an Illusion'");
+                    });
+                });
+                 
+                document.getElementById("communities-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Communities</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>Describes where people live, work, and shop, and how children get to school, in three kinds of communities.</p><p>1 count</p><button id='communities-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-communities-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("communities-digital-link-container").addEventListener("click", function(){
+                        window.open("./media/book/Communities.pdf", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-communities-book-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'Communities'");
+                    });
+                });
+                 
+                 document.getElementById("jacobin-mag-summer-2023-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Jacobin Magazine Summer 2023 Issue: Iraq at 20</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>«When and where has there been a war since so-called public opinion has played a role in governmental calculations, in which each and every belligerent party did not, with a heavy heart, draw the sword from its sheath for the single and sole purpose of defending its fatherland and its own righteous cause from the shameful attacks of the enemy? This legend is as inextricably a part of the game of war as powder and lead.» - Rosa Luxemburg, The Junius Pamphlet, 1915</p><p>1 count</p><button id='jacobin-mag-summer-2023-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-jacobin-mag-summer-2023-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("jacobin-mag-summer-2023-digital-link-container").addEventListener("click", function(){
+                        window.open("https://jacobin.com/issue/iraq-at-twenty", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-jacobin-mag-summer-2023-book-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'Jacobin Mag Summer 2023'");
+                    });
+                });
+                 
+                
+             });
+            
+            LittleFreeDigitalLibrary[3].marker.on("popupclose", function(){
+                document.getElementById("member-options-container").innerHTML = "<h3>The Little Free Digital Library</h3><p>Hello World! Click on an icon to start.</p><br/><h3>Key</h3><p>📚 Library</p><p>🧑🏽‍🏫 , 🚁Librarian</p>"
+            });
+            
             LittleFreeDigitalLibrary[0].marker.addTo(map);
             LittleFreeDigitalLibrary[1].marker.addTo(map);
             LittleFreeDigitalLibrary[2].marker.addTo(map);
+            LittleFreeDigitalLibrary[3].marker.addTo(map);
             
             var maidenPop = [
                 false,
@@ -641,6 +763,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             
            var memberOptionsContainer = document.createElement("div");
             memberOptionsContainer.setAttribute("id", "member-options-container");
+            memberOptionsContainer.classList.add("smooth-scroll");
             memberOptionsContainer.innerHTML = "<h3>The Little Free Digital Library</h3><p>Hello World! Click on an icon to start.</p><br/><h3>Key</h3><p>📚 Library</p><p>🧑🏽‍🏫 , 🚁Librarian</p>";
             document.getElementById("main-app-container").append(memberOptionsContainer);
             

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../media/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../media/icon/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
+    <title>v. 0.0.1.a</title>
+    <style>
+        * {
+            font-family: "Braah One", sans-serif;
+        }
+        
+        #success-container{
+            width: 350px;
+            height: 350px;
+            display: block;
+            margin: 10% auto 0 auto;
+            cursor: pointer;
+        }
+        
+        #success-icon-container{
+            width: 225px;
+            height: 225px;
+            display: block;
+            margin: 0 auto;
+            background-image: url(./media/img/success-icon.png);
+            background-size: cover;
+        }
+        
+        #success-label-container{
+            width: 100%;
+            line-height: 35px;
+            font-size: 22px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="success-container">
+        <div id="success-icon-container"></div>
+        <div id="success-label-container">
+            <p>Your Node Was Successfully Submitted</p>
+            <p>Your Collection Will Be Reviewed W/in 24 Hours</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            setTimeout(function(){
+                window.location.replace("https://littlefreedigitallibrary.com");
+            }, 6000);
+        })
+    </script>
+</body>
+</html>

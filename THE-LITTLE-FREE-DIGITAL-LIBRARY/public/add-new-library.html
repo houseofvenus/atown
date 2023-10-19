@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
-    <title>v. 0.0.3.f</title>
+    <title>v. 0.0.4.a</title>
     <style>
         * {
             font-family: "Braah One", sans-serif;
@@ -91,6 +91,23 @@
             display: none;
         }
         
+        .preview-image-container{
+            width: 300px;
+            height: 300px;
+            border: 0;
+            border-radius: 5px;
+            display: none;
+            margin: 2% auto;
+        }
+        
+        @media only screen and (max-width: 640px){
+            .add-map-node-stage-container{
+                width: 100%;
+                /*height: auto;
+                display: block;*/
+                margin: 6% auto 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -113,11 +130,15 @@
         <div id="add-library-address-stage-container" class="stage-1-container add-map-node-stage-container">
             <h3 style="width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Add the Library's Meta Data</h3>
             <p style="width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Full Address (one line)</p>
-            <input type="text" id="library-address-input-container" placeholder="1600 Pennsylvania Avenue NW, Washington, D.C. 20010" />
+            <input type="text" id="library-address-input-container" onfocusout="checkCompletion()" placeholder="1600 Pennsylvania Avenue NW, Washington, D.C. 20010" />
             <p style="width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Library Name</p>
-            <input type="text" id="libary-name-input-container" placeholder="Patrice-Morgan's Library" />
+            <input type="text" id="libary-name-input-container" onfocusout="checkCompletion()" placeholder="Patrice-Morgan's Library" />
         </div>
         <div class="stage-2-container add-map-node-stage-container">
+            
+            <img id="preview-image-0-container" class="preview-image-container" src="#" alt="library with door(s) closed" />
+            <img id="preview-image-1-container" class="preview-image-container" src="#" alt="library with door(s) open" />
+            <img id="preview-image-2-container" class="preview-image-container" src="#" alt="library close up with door(s) open" />
             <button id="start-over-button-container" class="add-photo-button-container">Start Over</button>
             <button id="finish-button-container" class="add-photo-button-container">Finish</button>
         </div>
@@ -132,27 +153,17 @@
         var storage, database;
 
         const config = {
-          apiKey: "AIzaSyAzqXRxpmI9K7UMTsiuFU6b54SkSjNojkU",
-          authDomain: "lyoko-blockchain.firebaseapp.com",
-          databaseURL: "https://lyoko-blockchain-default-rtdb.europe-west1.firebasedatabase.app",
-          projectId: "lyoko-blockchain",
-          storageBucket: "lyoko-blockchain.appspot.com",
-          messagingSenderId: "820284895954",
-          appId: "1:820284895954:web:e69039cadfd002bc15b30b"
+          apiKey: "AIzaSyD4xGEagLvCbvjxhjZVIP3pTeFfRGLDLnc",
+          authDomain: "little-free-digital-library.firebaseapp.com",
+          databaseURL: "https://little-free-digital-library-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "little-free-digital-library",
+          storageBucket: "little-free-digital-library.appspot.com",
+          messagingSenderId: "700949129537",
+          appId: "1:700949129537:web:084450b66907831fe759c0",
+          measurementId: "G-S4Z1DXZBNW"
         };
         
         firebase.initializeApp(config);
-
-        firebase.auth().signInWithEmailAndPassword("traderjoesdeliverydc@gmail.com", "L3R0!duL0@ng0")
-          .then((userCredential) => {
-            // Signed in
-            console.log("signed in");
-            var user = userCredential.user;
-          })
-          .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-          });
 
         var Stages = [
             "stage-0-title-container",
@@ -171,7 +182,50 @@
           console.log("content loaded");
         });
 
+        function checkCompletion(){
+            let libAddress = document.getElementById("library-address-input-container").value;
+            let libName = document.getElementById("libary-name-input-container").value;
+            if(libAddress!=null && libAddress != "" && libName !=null && libName !=""){
+                console.log("not complete");
+            }
+            else{
+                document.getElementById("finish-button-container").style.display = "block";
+                document.getElementById("finish-button-container").addEventListener("click", function(){
+                    window.location.assign("./success");
+                });
+            }
+        }
+        
         document.addEventListener("DOMContentLoaded", function(){
+            var ImageInputs = [
+                document.getElementById(PhotoInput[0]),
+                document.getElementById(PhotoInput[1]),
+                document.getElementById(PhotoInput[2])
+            ];
+            
+            ImageInputs[0].onchange = evt => {
+              const [file] = ImageInputs[0].files;
+              if (file) {
+                  document.getElementById("preview-image-0-container").style.display = "block";
+                  document.getElementById("preview-image-0-container").src = URL.createObjectURL(file);
+              }
+            }
+            
+            ImageInputs[1].onchange = evt => {
+              const [file] = ImageInputs[1].files;
+              if (file) {
+                  document.getElementById("preview-image-1-container").style.display = "block";
+                  document.getElementById("preview-image-1-container").src = URL.createObjectURL(file);
+              }
+            }
+            
+            ImageInputs[2].onchange = evt => {
+              const [file] = ImageInputs[2].files;
+              if (file) {
+                  document.getElementById("preview-image-2-container").style.display = "block";
+                  document.getElementById("preview-image-2-container").src = URL.createObjectURL(file);
+              }
+            }
             document.getElementById("add-library-photo-button-container").addEventListener("click", function(){
                 document.getElementById(Stages[onStage]).style.display = "none";
                 document.getElementById(PhotoInput[onStage]).click();
