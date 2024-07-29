@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Braah+One&display=swap');
+@font-face{
+    font-family:"AuraRegular W05 Regular";
+    src: url("../css/d83d08da-5e79-48df-a9b1-6f5acf78cb00.eot?#iefix");
+    src: url("../css/d83d08da-5e79-48df-a9b1-6f5acf78cb00.eot?#iefix") format("eot"),url("../css/92d5ad9f-b979-4d9b-8608-e7bef993c281.woff2") format("woff2"),url("../css/48665d19-aff2-4022-aa29-5f4afa40c8af.woff") format("woff"),url("../css/27cf9724-1c32-4032-b145-f082ef3ddb21.ttf") format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html{
+    width: 100%;
+    height: 100%;
+}
+
+/*#animated-background-layer-container{
+    z-index: -5;
+    background-color: red;
+    transition: background-color 0.25s;
+}*/
+
+#main-app-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    background-color: rgba(255, 255, 255, 0.5);
+    font-family: "IBM Plex Sans", sans-serif;
+    color: white;
+
+    transition: color 0.5s;
+
+    overflow: hidden;
+}
+
+#background-layer-container{
+    object-fit: cover;
+    /* overflow: hidden; */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    opacity: 0;
+    overflow: hidden;
+    z-index: 0;
+    transition: opacity 2s;
+}
+
+#house-of-venus-title-container, #isabelle-s-market-title-container{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.95);
+    text-transform: uppercase;
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    font-size: 22px;
+    height: 50px;
+    width: 250px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+
+.menu-option-container{
+    width: 126px;
+    margin: 0 12px;
+    height: 100%;
+    display: inline-block;
+    font-size: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: black;
+}
+
+.menu-option-container:hover{
+    font-style: italic;
+}
+
+#mobile-menu-toggle-button-container{
+    display: none;
+    background-image: url(../media/img/mobile-menu-icon.png);
+    width: 50px;
+    height: 50px;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+#video-container{
+    display: block;
+    width: 1080px;
+    margin: 4% auto 0 auto;
+    z-index: 0;
+    transition: opacity 0.5s;
+}
+
+#products-option-highlight{
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+#start-video-button-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-image: url(../media/img/play-button.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 50;
+    opacity: 1.0;
+    transition: opacity 0.5s;
+}
+
+#tag-line-container{
+    width: 600px;
+    height: 250px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin: -125px 0 0 -300px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#house-of-venus-tag-line-0-container{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 900;
+    border-radius: 5px;
+}
+
+#house-of-venus-tag-line-1-container{
+    margin-top: 10%;
+    font-size: 22px;
+    border-radius: 5px;
+}
+
+#build-your-own-button-container{
+    width: 250px;
+    height: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: crimson;
+    color: white;
+    text-align: center;
+    font-weight: 900;
+    font-size: 24px;
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    margin-left: -125px;
+    line-height: 50px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#build-your-own-button-container:hover{
+    text-transform: uppercase;
+    background-color: aquamarine;
+    color: black;
+    font-size: 20px;
+}
+#hov-logo-container{
+    background-image: url(../media/img/hov_ig_logo.png);
+}
+
+#im-logo-container{
+    background-image: url(../media/img/pangaea-app-icon.png);
+}
+
+.color-white-type{
+    color: white;
+}
+
+.braah-title-type{
+    font-family: "Braah One", sans-serif;
+}
+
+#hov-logo-container, #im-logo-container{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    margin-left: -25px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#im-logo-container{
+    z-index: 100;
+}
+
+.portal-button-container{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 3%;
+    cursor: pointer;
+    box-shadow: none;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: box-shadow 0.25s;
+    border: 0;
+    outline: none;
+}
+
+.portal-button-container:hover{
+    box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.95);
+}
+
+#tiktok-portal-button-container{
+    background-image: url(../media/img/tiktok-texture.png);
+    left: 3%;
+}
+
+#instagram-portal-button-container{
+    background-image: url(../media/img/instagram-texture.png);
+    right: 3%;
+}
+
+.highlight-white-container{
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.highlight-bold-container{
+    background-color: rgba(255, 255, 255, 0);
+    font-weight: 900;
+    color: white;
+    font-size: 30px;
+}
+
+.puffy-border-container{
+    border: 7px rgba(255, 255, 255, 0.95) solid;
+    border-radius: 5px;
+}
+
+.bottom-bunk{
+    margin: 20px auto 0 auto;
+    display: block;
+    width: 350px;
+}

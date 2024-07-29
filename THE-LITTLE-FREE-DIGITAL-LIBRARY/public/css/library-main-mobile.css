@@ -1,0 +1,29 @@
+@media only screen and (max-width: 980px) { 
+    
+    #tag-line-container {
+        width: 100%;
+        height: 350px;
+        position: absolute;
+        top: 50%;
+        left: auto;
+        margin: -250px 0 0 0px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+    
+    #house-of-venus-title-container, #isabelle-s-market-title-container{
+        position: absolute;
+        top: auto;
+        bottom: 2%;
+        left: 50%;
+        margin-left: -125px;
+    }
+ 
+    #house-of-venus-tag-line-0-container{
+        font-size: 36px;
+    }
+    #house-of-venus-tag-line-1-container {
+        font-size: 20px;
+    }
+}

@@ -1,35 +1,33 @@
 # THE LITTLE FREE DIGITAL LIBRARY
 
-## a peer-to-peer internet of books
+## a peer-to-peer culture-net of books and films
 
 ### Architect(s)
-#### Patrice-Morgan de Goma [@starmaker2130](https://github.com/starmaker2130)
+#### Patrice-Morgan [@starmaker2130](https://github.com/starmaker2130)
 
 ### Quick Guide
 1. Background
-2. Books
+2. Books + Films
 3. Exchange
-4. Book Clubs
-5. Prospects
 
 ### Background
 
-Knowledge should be freely accessible. There is a crisis of education in the United States primarily driven by wealth inequality that has been further exacerbated by political tensions, poor administration, and unsatisfactory objectives. We must fix this or perish. 
+Knowledge should be freely accessible. There is a crisis of education in the United States primarily driven by wealth inequality that has been exacerbated by political tensions, poor administration, and unsatisfactory efforts. The youth must fix this or perish. 
 
 "The Human Mind is Our Fundamental Resource"
 John Fitzgerald Kennedy, 35th President of the United States of America
 
-In the previous age, Millenials revolutionized the telemedia landscape by pioneering peer-to-peer principles in digital technology. Music, film, television, could all be broadcast to millions and now billions with ease thanks to their early efforts.
+In the previous age, Millenials revolutionized the telemedia landscape by pioneering peer-to-peer principles in digital technology. Music, film, television, could all be broadcast to millions and now billions with ease.
 
-Now, in our age Generation Z and Alpha has the opportunity to pioneer the application of these same principles to physical domains. Why not start with books?
+Now, in our age Generation Z and Alpha has the opportunity to pioneer the application of these same principles to physical domains. Why not start with books and films?
 
 ### Books
 
-The entire corpus of the Project Gutenberg will be mirrored here and updated regularly using Lyoko.
+Our primary objectives are to:
+(a) digitize the contents of every Little Free Library in North America and assemble it into one corpus.
+(b) facilitate book and film exchanges between neighbors
 
-Private collections whose articles have been donated and cleared for non-commercial reuse will be included here. Updates on current private additions can be found here.
-
-The entirety of the contents of every Little Free Library in the continental United States will be catalogued here. 
+Private collections whose articles have been donated and cleared for non-commercial reuse will be included here. Updates regularly.
 
 ### Exchange
 
