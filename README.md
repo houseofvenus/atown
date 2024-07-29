@@ -1,9 +1,9 @@
-# ATOWN | v. 0.1.0.16
+# ATOWN | v. 0.2.0.a
 
-## a framework for building semantic webs; designed to introduce concepts in Hyper-Reality
+## a framework for exploring concepts in Hyper-Reality
 
 ### Author(s)
-#### Patrice-Morgan Ongoly [@starmaker2130](https://github.com/starmaker2130)
+#### Patrice-Morgan [@starmaker2130](https://github.com/starmaker2130)
 
 ### Quick Guide
 1. Background
@@ -17,9 +17,11 @@
 
 ### Background
 
+ATOWN is a Hyper Reality framework useful for designing interactive experiences.
+
 In ATOWN, any observable process, or entity, can be reduced to four essential component types. Using these types, an observer can deconstruct any process or entity using other processes and/or entities. Thus each one forms a node on a distributed network of processes/entities whose behaviors and functionality can be described using their respective connections to other nodes within this disrributed hierarchy. 
 
-In the Public Augmented Reality Kinectome (pARk), our [serialization](https://github.com/houseofvenus/pARk) of ATOWN, resources are addressed by the semantic value of their content rather than the physical location address of said content on the network. The primary advantages of this system for web development are that any web page can be built intuitively from other web pages. You can design a site in the abstract using natural words, phrases, and motions to duplicate or adapt code from other web pages for your own. The distributed ledger technology hosting all of the pARk content, spreads access across the network, using peer to peer protocols to host content and avoid a sinlge point of failure while also removing redundancies.
+In the Public Augmented Reality Kinectome (pARk), our [serialization](https://github.com/houseofvenus/pARk) of ATOWN, resources (photos, video, text, etc.) are addressed by the semantic value of their content rather than the physical location where said content is stored on the network. The primary advantages of this system for web development are that any web page can be built intuitively from other web pages. You can design a site in the abstract using natural words, phrases, and motions to duplicate or adapt code from other web pages for your own. The distributed ledger technology hosting all of the pARk content, spreads access across the network, using peer to peer protocols to host content and avoid a single point of failure while also removing redundancies.
 
 ### ATOWN Types
 
@@ -33,12 +35,47 @@ These component types are drawn from the framework's primary objective to effect
 
 ### Environments and Defining Hyper-Real Spaces
 
-One of the core distinctions between the ATOWN conception of Hyper Reality and other frameworks for studying this concept is the assertion that:
+"There are three sides to every story, your side, my side and the truth" - Parable
+
+The Core assertion of ATOWN is that:
 - There is no reality besides hyper-reality
 
-This departs from the common perception of "reality" as a range of potential experiences. The disadvantage of the spectra is that placing "virtual" experiences at one point and "real" and "augmented" experiences at other points along a line assumes by definition to know  with certainty the nature of said realities, i.e. one is less "real" than another. In ATOWN all potential formats of an experience exist simultaneously. What is observed is known as the PM, the polarizing matrix, and it is a measure of what a given observer is capable of perceiving at the moment. ATOWN avoids any assertions about the "truth" of a reality unlike in the traditional method of organizing reality along a spectrum. In ATOWN the only assertions we make about reality (defined as "that which is observed") are the following tautologies:
-
-Given a "reality" is "an observable experience"
+This follows from the tautologies:
 - what we can observe, we can observe
 - what we cannot, we cannot
-- thus there is no total reality besides hyper-reality, which is defined as the set of all realities we can observe
+- the mind is unreliable (less 100%)
+
+In ATOWN reality is not measured along a line from "less real" (virtual) to "more real". 
+This traditional view makes an inherent assumption about which reality is "true". 
+Instead, ATOWN treats reality as the set of all the interpretations of observable events during a given period of time.
+What is perceived by an observer, A, at a given moment, M0, is referred to as that observer's polarizing matrix, PM(A0). 
+If only one observer, e.g. A, observes an event at M0, the event is not necessarily "real". It is merely considered "an observable experience" (memory, figment, hallucination). 
+ATOWN does not classify it as "real" because individual observers are unreliable.
+At least two observers need to be present to statistically improve their collective reliability.
+
+If a second observer B sees that event at M0 along with A, then the set of their polarizing matrices defines their Reality for that moment.
+
+R0 = { PM(A0), PM(B0)}
+
+ATOWN avoids any assertions about the "truth" of what individuals observe, ie. that PM(A0) is more real than PM(B0). (Three sides principle).
+
+Reality is not an individual concept in ATOWN. It only exists as the set of collective interpretations of observable experiences.
+
+To get useful information about an event in ATOWN we can compute over the sets of interpretations ("Realities"). The denser these sets are, the more reliable the result of a computation.
+
+Realities are defined as sets of interpretations of individual moments. They "exist" at discrete time intervals.
+To study phenomena continuous time periods are needed. Therefore we actually compute over sets of Realities, which we call Hyper Real Spaces.
+
+H = R0 U R1 U R2 U R3 *** Rn, n = final time interval
+
+
+### Object-Subjects
+* section coming soon
+### Perspective and Special Classes
+* section coming soon
+### Effectors
+* section coming soon
+### Selectors
+* section coming soon
+### Serializing the Specification
+* section coming soon
