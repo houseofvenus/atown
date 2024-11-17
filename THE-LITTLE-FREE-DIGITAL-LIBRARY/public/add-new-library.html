@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html>
+<!--
+
+    ADD NEW LIBRARY
+
+    Abstract: Librarians use this page to add new physical libraries to The Little Free Digital Library.
+    
+    Process: Take three images of the library: one of the library's front with the doors open, another from  the same vantage point with the doors closed, and a third photo from another angle with the doors open. 
+    
+    Result: The library's physical address and name are required for registration. Once successfully submitted the Librarian will be returned to the Map. The data provided is processed by TreeHouse as a LIBRARY transaction.
+
+    Author: Patrice-Morgan
+    Current Version: 0.8.a
+    Last Updated: Sunday, November 10, 2024 22:53 GMT-0400
+
+-->
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -8,107 +23,12 @@
     <link rel="icon" type="image/png" href="../media/icon/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link rel ="stylesheet" type="text/css" href="../css/PublicAugmentedRealityKinectome.css" />
     <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
-    <title>v. 0.0.4.a</title>
-    <style>
-        * {
-            font-family: "Braah One", sans-serif;
-        }
-        
-        .add-map-node-stage-container{
-            width: 500px;
-            height: auto;
-            display: block;
-            margin: 3% auto 0 auto;
-        }
-        
-        .stage-title-container{
-            width: 100%;
-            height: 35px;
-            font-size: 20px;
-            line-height: 35px;
-            text-align: center;
-            cursor: pointer;
-            font-weight: 700;
-        }
-        
-        #add-library-photo-button-container{
-            width: 75px;
-            height: 75px;
-            border: 1px black solid;
-            border-radius: 5px;
-            background-color: white;
-            color: black;
-            text-align: center;
-            line-height: 75px;
-            font-size: 22px;
-            display: block;
-            margin: 50px auto 1% auto;
-            outline: none;
-            text-transform: uppercase;
-        }
-        
-        #stage-01-title-container, #stage-02-title-container{
-            display: none;
-        }
-        
-        #add-library-address-stage-container{
-            display: none;
-        }
-        
-        #library-address-input-container, #libary-name-input-container{
-            width: 300px;
-            height: 35px;
-            border-radius: 10px;
-            display: block;
-            margin: 0 auto;
-        }
-        
-        #start-over-button-container, #finish-button-container{
-            width: 300px;
-            display: block;
-            margin: 2% auto;
-            cursor: pointer;
-            height: 35px;
-            border-radius: 5px;
-            text-align: center;
-            line-height: 35px;
-            background-color: white;
-            color: black;
-            transition: background-color 0.25s, color 0.25s;
-        }
-        
-        #start-over-button-container:hover, #finish-button-container:hover{
-            color: white;
-            background-color: black;
-        }
-        
-        #finish-button-container{
-            display: none;
-        }
-        
-        .photo-input-container{
-            display: none;
-        }
-        
-        .preview-image-container{
-            width: 300px;
-            height: 300px;
-            border: 0;
-            border-radius: 5px;
-            display: none;
-            margin: 2% auto;
-        }
-        
-        @media only screen and (max-width: 640px){
-            .add-map-node-stage-container{
-                width: 100%;
-                /*height: auto;
-                display: block;*/
-                margin: 6% auto 0 auto;
-            }
-        }
-    </style>
+    <link href="../css/library-map-filter.css" rel="stylesheet" type="text/css" /> 
+    <link href="../css/add-new-node.css" rel="stylesheet" type="text/css" /> 
+    <title>🧑🏽‍🏫 Add New Library 📚 The Little Free Digital Library 📚</title>
 </head>
 <body>
     <div id="add-new-library-menu-container">
@@ -128,17 +48,23 @@
             <input type="file" id="photo-2-input-container" class="photo-input-container" accept="image/png, image/jpeg" />
         </div>
         <div id="add-library-address-stage-container" class="stage-1-container add-map-node-stage-container">
-            <h3 style="width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Add the Library's Meta Data</h3>
-            <p style="width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Full Address (one line)</p>
+            <h3 style="color: white; width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Add the Library's Meta Data</h3>
+            <p style="color: white; width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Full Address (one line)</p>
             <input type="text" id="library-address-input-container" onfocusout="checkCompletion()" placeholder="1600 Pennsylvania Avenue NW, Washington, D.C. 20010" />
             <p style="width: 100%; text-align: center; font-size: 20px; font-weight: 700;">Library Name</p>
-            <input type="text" id="libary-name-input-container" onfocusout="checkCompletion()" placeholder="Patrice-Morgan's Library" />
+            <input type="text" id="library-name-input-container" onfocusout="checkCompletion()" placeholder="Patrice-Morgan's Library" />
         </div>
         <div class="stage-2-container add-map-node-stage-container">
-            
-            <img id="preview-image-0-container" class="preview-image-container" src="#" alt="library with door(s) closed" />
-            <img id="preview-image-1-container" class="preview-image-container" src="#" alt="library with door(s) open" />
-            <img id="preview-image-2-container" class="preview-image-container" src="#" alt="library close up with door(s) open" />
+
+            <div id="preview-image-0-container" class="preview-image-container">
+                <img id="preview-image-content-0-container" class="preview-image-content-container" src="#" alt="library with door(s) closed" />
+            </div>
+            <div id="preview-image-1-container" class="preview-image-container">
+                <img id="preview-image-content-1-container" class="preview-image-content-container" src="#" alt="library with door(s) open" />
+            </div>
+            <div id="preview-image-2-container" class="preview-image-container">
+                <img id="preview-image-content-2-container" class="preview-image-content-container" src="#" alt="library close up with door(s) open" />
+            </div>
             <button id="start-over-button-container" class="add-photo-button-container">Start Over</button>
             <button id="finish-button-container" class="add-photo-button-container">Finish</button>
         </div>
@@ -165,6 +91,42 @@
         
         firebase.initializeApp(config);
 
+        database = firebase.database();
+        var existingLibrariesRef = database.ref('TreeHouse/Libraries');
+        existingLibrariesRef.on('value', (snapshot) => {
+          const data = snapshot.val();
+          console.log(data);
+        });
+
+        var newLibraryApplicant = {
+            index: -1,
+            catalog: { 
+                currentBookCount: 1,
+                currentCount: 2,
+                currentFilmCount: 1,
+                pointerId: "ax000002"
+            },
+            location: {
+                address: "erewhon",
+                alt: 0,
+                lat: 0,
+                lng: 0
+            },
+            meta: {
+                name: "untitled",
+                owner: "unassigned",
+                registration: { 
+                    date: Date(),
+                    keyID: "2024-1025-ax00-0002"
+                },
+                views: {
+                    frontClosed: "",
+                    frontOpen: "",
+                    frontOpenZoom: ""
+                }
+            }
+        };
+        
         var Stages = [
             "stage-0-title-container",
             "stage-01-title-container",
@@ -178,25 +140,53 @@
         ]
         
         var onStage = 0;
-        window.addEventListener("load", function(){
-          console.log("content loaded");
-        });
 
         function checkCompletion(){
-            let libAddress = document.getElementById("library-address-input-container").value;
-            let libName = document.getElementById("libary-name-input-container").value;
-            if(libAddress!=null && libAddress != "" && libName !=null && libName !=""){
+            var libAddress = document.getElementById("library-address-input-container").value;
+            var libName = document.getElementById("library-name-input-container").value;
+            
+            if(!(libAddress!=null && libAddress != "" && libName !=null && libName !="")){
                 console.log("not complete");
+                console.log(libAddress);
+                console.log(libName);
             }
             else{
+                console.log("completed!");
+                console.log(libAddress);
+                console.log(libName);
+                newLibraryApplicant.location.address = libAddress;
+                newLibraryApplicant.meta.name = libName;
+
                 document.getElementById("finish-button-container").style.display = "block";
-                document.getElementById("finish-button-container").addEventListener("click", function(){
-                    window.location.assign("./success");
+                document.getElementById("finish-button-container").addEventListener("click", function(){   
+                    database.ref('TreeHouse/Libraries/New/' + libName).set(newLibraryApplicant, (error) => {
+                        if (error) {
+                            console.log("The write failed...");
+                        } else {
+                        // Data saved successfully!
+                            window.location.assign("./success");
+                        }
+                    });      
                 });
             }
         }
-        
+
         document.addEventListener("DOMContentLoaded", function(){
+
+            function incrementInputs(){
+                
+                if(onStage<2){
+                    document.getElementById(Stages[onStage]).style.display = "none";
+                    document.getElementById(Stages[onStage+1]).style.display = "block";
+                    onStage++;
+                }
+                else{
+                    document.getElementById(Stages[onStage]).style.display = "none";
+                    document.getElementById("add-library-photos-stage-container").style.display = "none";
+                    document.getElementById("add-library-address-stage-container").style.display = "block";
+                }
+            }
+            
             var ImageInputs = [
                 document.getElementById(PhotoInput[0]),
                 document.getElementById(PhotoInput[1]),
@@ -205,38 +195,60 @@
             
             ImageInputs[0].onchange = evt => {
               const [file] = ImageInputs[0].files;
+                var target = evt.target || evt.srcElement;
               if (file) {
                   document.getElementById("preview-image-0-container").style.display = "block";
-                  document.getElementById("preview-image-0-container").src = URL.createObjectURL(file);
+                  document.getElementById("preview-image-content-0-container").style.display = "block";
+                  document.getElementById("preview-image-content-0-container").src = URL.createObjectURL(file);
+                  console.log("File selected: ", target.value);
+                  
+                  newLibraryApplicant.meta.views.frontClosed = target.value;
+                  incrementInputs(); 
+              } else{
+                    console.log(target, "changed.");
+                    console.log(evt);
+                if (target.value.length == 0)console.log("Suspect Cancel was hit, no files selected.");
               }
             }
             
             ImageInputs[1].onchange = evt => {
               const [file] = ImageInputs[1].files;
+                var target = evt.target || evt.srcElement;
               if (file) {
                   document.getElementById("preview-image-1-container").style.display = "block";
-                  document.getElementById("preview-image-1-container").src = URL.createObjectURL(file);
+                  document.getElementById("preview-image-content-1-container").style.display = "block";
+                  document.getElementById("preview-image-content-1-container").src = URL.createObjectURL(file);
+                  console.log("File selected: ", target.value);
+                  
+                  newLibraryApplicant.meta.views.frontOpen = target.value;
+                  incrementInputs();
+              } else{
+                    console.log(target, "changed.");
+                    console.log(evt);
+                if (target.value.length == 0)console.log("Suspect Cancel was hit, no files selected.");
               }
             }
             
             ImageInputs[2].onchange = evt => {
               const [file] = ImageInputs[2].files;
+                var target = evt.target || evt.srcElement;
               if (file) {
                   document.getElementById("preview-image-2-container").style.display = "block";
-                  document.getElementById("preview-image-2-container").src = URL.createObjectURL(file);
+                  document.getElementById("preview-image-content-2-container").style.display = "block";
+                  document.getElementById("preview-image-content-2-container").src = URL.createObjectURL(file);
+                  console.log("File selected: ", target.value);
+                  
+                  newLibraryApplicant.meta.views.frontOpenZoom = target.value;
+                  incrementInputs();
+              } else{
+                    console.log(target, "changed.");
+                    console.log(evt);
+                if (target.value.length == 0)console.log("Suspect Cancel was hit, no files selected.");
               }
             }
+            
             document.getElementById("add-library-photo-button-container").addEventListener("click", function(){
-                document.getElementById(Stages[onStage]).style.display = "none";
                 document.getElementById(PhotoInput[onStage]).click();
-                onStage++;
-                if(onStage<3){
-                    document.getElementById(Stages[onStage]).style.display = "block";
-                }
-                else{
-                    document.getElementById("add-library-photos-stage-container").style.display = "none";
-                    document.getElementById("add-library-address-stage-container").style.display = "block";
-                }
             });
             
             document.getElementById("start-over-button-container").addEventListener("click", function(){

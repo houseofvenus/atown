@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Read | Little Free Digital Library | v 0.15.f</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
+    <style>
+        #main-app-container{
+            font-family: "Braah One", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #hov-logo-container{
+            background-image: url(../media/img/hov-ig-logo.png);
+            background-size: cover;
+            width: 60px;
+            height: 60px;
+            display: block;
+            cursor: pointer;
+        }
+        
+        #library-icon-container{
+            background-image: url(../media/img/library-final-icon.png);
+            background-size: cover;
+            margin: 2% auto;
+            width: 60px;
+            height: 60px;
+            display: block;
+            cursor: pointer;
+        }
+
+        #profile-button-container{
+            font-size: 16px;
+            text-align: center;
+            line-height: 32px;
+            width: 36px;
+            height: 36px;
+            border: 2px solid black;
+            border-radius: 50%;
+            color: black;
+            font-family: "Braah One", sans-serif;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -18px;
+            background-image: url(../media/img/black-profile-icon.png);
+            background-size: cover;
+        }
+
+        #order-form-container{
+            width: 50%;
+            height: 100%;
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .order-input-container{
+            display: block;
+            width: 360px;
+            height: 42px;
+            line-height: 38px;
+            padding: 2px;
+            padding-left: 18px;
+            border: 0;
+            border-radius: 7px;
+            color: black;
+            cursor: pointer;
+            outline: none;
+            font-size: 14px;
+            margin: 8px auto 16px auto;
+            transition: background-color 0.25s;
+        }
+
+        .std-bg-color{    
+            background-color: rgba(200, 200, 200, 0.3);
+        }
+
+        .disabled-bg-color{   
+            background-color: rgba(255, 195, 195, 0.5);
+        }
+        
+        .order-input-container:focus{
+            background-color: rgba(255, 255, 255, 1.0);
+            border: 1px solid black;
+            border-radius: 7px;
+        }
+        
+        .order-option-button-container{
+            width: 60px;
+            height: 60px;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 2% 8%;
+            outline: none;
+            background-size: 75% 75%;
+            background-position: 62% 12%;
+            background-repeat: no-repeat;
+            line-height: 90px;
+            vertical-align: bottom;
+            background-color: rgba(255, 255, 255, 0);
+            transition: background-color 0.25s;
+            font-weight: 400;
+        }
+
+        .selected-type{
+            background-color: rgba(0, 0, 0, 1.0);
+            color: white;
+            font-weight: 700;
+        }
+        
+        #books-option-button-container{
+            background-image: url(../media/img/library-final-icon.png);
+        }
+
+        #films-option-button-container{
+            background-image: url(../media/img/library-final-icon.png);
+        }
+
+        #items-option-button-container{
+            background-image: url(../media/img/library-final-icon.png);
+        }
+
+        #submit-form-button-container{
+            width: 105px;
+            height: 45px;
+            border: 1px solid black;
+            border-radius: 8px;
+            color: white;
+            background-color: rgba(0, 0, 0, 1.0);
+            font-family: 'Braah One';
+            font-size: 16px;
+            margin-top: max(15px, 5%);
+        }
+
+        #map-container{
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 49%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #map-source-container{
+            flex-grow: 1;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #read-anywhere-header-container{
+            font-family: "IBM Plex Sans", sans-serif;
+            width: 380px;
+            display: block; margin: 3% auto 0 auto;
+        }
+
+        #read-anywhere-header-container h2{
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            width: 100%;
+            line-height: 32px;
+        }
+
+        @media only screen and (max-width: 640px){
+            #order-form-container{
+                width: 100%;
+                height: 35%;
+                display: block;
+                position: fixed;
+                top: auto;
+                bottom: 0;
+                left: 0;
+                z-index: 10;
+                overflow: scroll;
+            }
+
+             #map-container{
+                position: fixed;
+                right: 0;
+                top: 0;
+                width: 100%;
+                height: 64%;
+                display: flex;
+                flex-direction: row;
+                 z-index: 1;
+            }
+        }
+    </style>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+    <div id="main-app-container">
+        <div id="order-form-container">
+            <div id="read-anywhere-header-container">
+                <h2>Read anywhere</h2>
+            </div>
+            <div style="width: 380px; display: block; margin: 0 auto;">
+                <button id="books-option-button-container" class="order-option-button-container">Books</button>
+                <button id="films-option-button-container" class="order-option-button-container">Films</button>
+                <button id="items-option-button-container" class="order-option-button-container">Items</button>
+            </div>
+            <input type="text" id="title-location-input-container" class="std-bg-color order-input-container" placeholder="Title" />
+            <input type="text" id="pickup-location-input-container" class="disabled-bg-color order-input-container" placeholder="Pickup Location" disabled />
+            <input type="text" id="drop-off-location-input-container" class="std-bg-color order-input-container" placeholder="Drop-off Location" />
+            <div style="display: block; width: 380px; height: 50px; margin: 1% auto;">
+                <label for="pickup-radius">Pickup Radius:</label>
+                <input type="range" id="pickup-radius" name="vol" min="1" max="20">
+                <select id="cars" name="cars">
+                    <option value="volvo">ASAP</option>
+                    <option value="saab">Custom Date</option>
+                </select>
+            </div>
+            <div style="display: block; width: 380px; height: 50px; margin: 1% auto;">
+                <button id="submit-form-button-container">Search</button>
+            </div>
+        </div>
+        <div id="map-container">
+            <iframe id="map-source-container" src="https://www.littlefreedigitallibrary.com/map" title="The Little Free Digital Library">
+            </iframe>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            console.log("ready to build");
+
+            var booksSelected = false;
+            var filmsSelected = false;
+            var itemsSelected = false;
+           document.getElementById("books-option-button-container").addEventListener("click", function(){
+                 if(itemsSelected){
+                     itemsSelected = false;
+                     booksSelected = true;
+                       document.getElementById("items-option-button-container").classList.remove("selected-type");
+                       document.getElementById("books-option-button-container").classList.add("selected-type");
+
+                     
+                     document.getElementById("pickup-location-input-container").classList.remove("std-bg-color");
+                    document.getElementById("pickup-location-input-container").classList.add("disabled-bg-color");
+                    document.getElementById("pickup-location-input-container").disabled = true ;
+                }
+               else{
+                   if(booksSelected){
+                       booksSelected = false;
+                       document.getElementById("books-option-button-container").classList.remove("selected-type");
+                    }
+                   else{
+                       booksSelected = true;
+                       document.getElementById("books-option-button-container").classList.add("selected-type");
+                    }
+                }
+           });
+
+            
+           document.getElementById("films-option-button-container").addEventListener("click", function(){
+                 if(itemsSelected){
+                     itemsSelected = false;
+                     filmsSelected = true;
+                       document.getElementById("items-option-button-container").classList.remove("selected-type");
+                       document.getElementById("films-option-button-container").classList.add("selected-type");
+                     
+                     document.getElementById("pickup-location-input-container").classList.remove("std-bg-color");
+                    document.getElementById("pickup-location-input-container").classList.add("disabled-bg-color");
+                    document.getElementById("pickup-location-input-container").disabled = true ;
+                }
+               else{
+                   if(filmsSelected){
+                       filmsSelected = false;
+                       document.getElementById("films-option-button-container").classList.remove("selected-type");
+                    }
+                   else{
+                       filmsSelected = true;
+                       document.getElementById("films-option-button-container").classList.add("selected-type");
+                    }
+                }
+           });
+
+            document.getElementById("items-option-button-container").addEventListener("click", function(){
+                 if(itemsSelected){
+                     itemsSelected = false;
+                       document.getElementById("items-option-button-container").classList.remove("selected-type");
+                     
+                     document.getElementById("pickup-location-input-container").classList.remove("std-bg-color");
+                    document.getElementById("pickup-location-input-container").classList.add("disabled-bg-color");
+                    document.getElementById("pickup-location-input-container").disabled = true ;
+                }
+               else{
+                   itemsSelected = true;
+                   document.getElementById("items-option-button-container").classList.add("selected-type");
+                   
+                   document.getElementById("pickup-location-input-container").classList.remove("disabled-bg-color");
+                   document.getElementById("pickup-location-input-container").classList.add("std-bg-color");
+                   document.getElementById("pickup-location-input-container").disabled = false;
+                   
+                   if(filmsSelected){
+                       filmsSelected = false;
+                       document.getElementById("films-option-button-container").classList.remove("selected-type");
+                    }
+                   if(booksSelected){
+                       booksSelected = false;
+                       document.getElementById("books-option-button-container").classList.remove("selected-type");
+                    }
+                }
+           });
+        });
+    </script>
+</body>
+</html>

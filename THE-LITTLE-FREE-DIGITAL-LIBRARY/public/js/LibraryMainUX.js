@@ -115,10 +115,6 @@ document.addEventListener("DOMContentLoaded", function(){
         goToDoor();
     });
     
-    document.getElementById("tiktok-portal-button-container").addEventListener("click", function(){
-        window.open("https://www.tiktok.com/@houseofven.us/", "_blank");
-    });
-    
     document.getElementById("instagram-portal-button-container").addEventListener("click", function(){
         window.open("https://www.instagram.com/littlefreedigitallibrary", "_blank");
     });

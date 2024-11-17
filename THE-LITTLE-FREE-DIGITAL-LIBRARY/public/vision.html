@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
-    <title>v. 0.0.1.0</title>
+    <title>Our Vision | The Little Free Digital Library | 0.3.c.0</title>
     <link rel ="stylesheet" type="text/css" href="./css/PublicAugmentedRealityKinectome.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -17,6 +17,19 @@
     <link rel="stylesheet" type="text/css" href="./css/library-map-filter.css" />
 </head>
 <body>
+    <input id="back-to-map-button-container" type="button" value="" />
+    <div id="vision-page-main-container">
+        <h3>Vision</h3>
+        <p>Access to open internets is as vital to human growth and life as access to clean water.</p>
+        <p>Our vision for The Little Free Digital Library is to democratize the power of knowledge, preserve human ingenuity, and expand creativity by sharing literature and film with communities around the world.
+        <!--<p>Literature is one of those ancient arts practice by mankind to better study itself and our condition. We share in its heritage by spreading old stories and creating new ones The legacy of adventures, real and imagined, we proudly bear. The joy of discovering, the horror of unearthing, mysteries hidden in pages and brought to life by film, is ours to share.</p>
+        <p>We are going through a tumultuous transition in human history. The climate is pushing city infrastructure to its limits, socioeconomic tensions have reached a boiling point, and war and genocide run rampant in many parts of the world. Still, lLiterature -- and her younger cousin film -- offers us a means to soothe and deconstruct the aches of our times, times past, and times to come.--> <p>Storytelling  offers us an escape from the bleakness of the human condition and lays a path for those visionaries among us to explore other worlds.  </p>
+        <p>Stay Visionary!</p>
+        
+        <input type="button" id="instagram-portal-button-container" class="portal-button-container" value=""/>
+        <input type="button" id="film-archive-portal-button-container" class="portal-button-container" value=""/>
+        <input type="button" id="book-archive-portal-button-container" class="portal-button-container" value=""/>
+    </div>
     
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
@@ -58,7 +71,9 @@
         });
 
         document.addEventListener("DOMContentLoaded", function(){
-            
+            document.getElementById("back-to-map-button-container").addEventListener("click", function(){
+                window.location.href = "./map";
+            });
         });
 
     </script>

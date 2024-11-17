@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <link rel="apple-touch-icon" sizes="180x180" href="./media/icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="../media/icon/favicon.png">
+    <link rel="icon" type="image/png" href="./media/icon/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Braah+One&display=swap" rel="stylesheet">
-    <title>v. 0.12.0.a</title>
+    <title>v. 0.15.0.d</title>
     <link rel ="stylesheet" type="text/css" href="./css/PublicAugmentedRealityKinectome.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -76,8 +76,8 @@
         
         <div id="library-menu-container">
             <button id="vision-page-button-container" class="library-menu-option-container" onmouseover="menuButtonHover(this)" onmouseout="menuButtonHoverOut(this)">Our Vision</button>
-            <button id="add-new-library-page-button-container" class="library-menu-option-container"  onmouseover="menuButtonHover(this)" onmouseout="menuButtonHoverOut(this)">+ Add New Library 📚</button>
-            <button id="add-new-librarian-page-button-container" class="library-menu-option-container" onmouseover="menuButtonHover(this)" onmouseout="menuButtonHoverOut(this)">+ Add New Librarian 🧑🏽‍🏫</button>
+            <button id="add-new-library-page-button-container" class="library-menu-option-container"  onmouseover="menuButtonHover(this)" onmouseout="menuButtonHoverOut(this)">🧑🏽‍🏫Add New Library📚</button>
+            <button id="add-new-item-page-button-container" class="library-menu-option-container" onmouseover="menuButtonHover(this)" onmouseout="menuButtonHoverOut(this)">📚Add New Book/Film🎥</button>
         </div>
         <button id="library-menu-button-container"></button>
         <div id="map" class="layer-container base-layer-container">
@@ -144,6 +144,14 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     })
                 },
                 {
+                    name: "Mistle Library",
+                    icon: L.icon({
+                        iconUrl: './media/img/library-icon.png',
+                        iconSize: [100, 80],
+                        popupAnchor: [38.932140, -77.040410]
+                    })
+                },
+                {
                     name: "Youth Build Library",
                     icon: L.icon({
                         iconUrl: './media/img/library-icon.png',
@@ -158,7 +166,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     name: "Harvard St Library",
                     marker: L.marker([38.926350, -77.036692], {icon: LittleFreeDigitalLibraryIconMap[0].icon}),
                     popup: L.popup([38.926350, -77.036692], {
-                        content: `<h3 id="harvard-st-library-header-container" class="header-container">Harvard St Library</h3><div class="header-icon-container" id="harvard-st-library-header-icon-container"></div><div class="library-catalog-container smooth-scroll">
+                        content: `<h3 id="harvard-st-library-header-container" class="header-container">Harvard St Library</h3><div class="refresh-rate-container">1 hour</div><button class="availability-toggle-button-container"></button><div class="header-icon-container" id="harvard-st-library-header-icon-container"></div><div class="library-catalog-container smooth-scroll">
                         <button id="table-tennis-balls-option-container" class="option-button-container"></button>
                         <button id="natty-boh-1-option-container" class="option-button-container"></button>
                         <button id="pbr-1-option-container" class="option-button-container"></button></div>`
@@ -168,7 +176,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     name: "Patrice-Morgan's Library",
                     marker: L.marker([38.932696, -77.039743], {icon: LittleFreeDigitalLibraryIconMap[1].icon}),
                     popup: L.popup([38.932696, -77.039743], {
-                        content: `<h3 id="pm-library-header-container" class="header-container">Patrice-Morgan's Library</h3><div id="pm-library-header-icon-container" class="header-icon-container"></div><div id="pm-library-catalog-container" class="library-catalog-container smooth-scroll">
+                        content: `<h3 id="pm-library-header-container" class="header-container">Patrice-Morgan's Library</h3><div class="refresh-rate-container">1 hour</div><button class="availability-toggle-button-container"></button><div id="pm-library-header-icon-container" class="header-icon-container"></div><div id="pm-library-catalog-container" class="library-catalog-container smooth-scroll">
                         <button id="because-of-sex-book-option-container" class="book-option-button-container"></button>
                         <button id="the-house-of-scorpion-book-option-container" class="book-option-button-container"></button>
                         <button id="the-nazi-seizure-of-power-book-option-container" class="book-option-button-container"></button>
@@ -181,7 +189,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     name: "KT's Library",
                     marker: L.marker([38.933563, -77.038869], {icon: LittleFreeDigitalLibraryIconMap[2].icon}),
                     popup: L.popup([38.933563, -77.038869], {
-                        content: `<h3 id="kt-library-header-container" class="header-container">KT's Library</h3><div id="kt-library-header-icon-container" class="header-icon-container"></div><div id="kts-library-catalog-container" class="library-catalog-container smooth-scroll">
+                        content: `<h3 id="kt-library-header-container" class="header-container">KT's Library</h3><div class="refresh-rate-container">1 hour</div><button class="availability-toggle-button-container"></button><div id="kt-library-header-icon-container" class="header-icon-container"></div><div id="kts-library-catalog-container" class="library-catalog-container smooth-scroll">
                         <button id="from-farmland-to-streetlevel-book-1-option-container" class="book-option-button-container"></button>
                         <button id="dragons-heart-book-option-container" class="book-option-button-container"></button>
                         <button id="father-of-the-bride-book-option-container" class="book-option-button-container"></button>
@@ -211,12 +219,20 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     })
                 },
                 {
+                    name: "Mistle Library",
+                    marker: L.marker([38.932140, -77.040410], {icon: LittleFreeDigitalLibraryIconMap[3].icon}),
+                    popup: L.popup([38.932140, -77.040410], {
+                        content: `<h3 id="mistle-library-header-container" class="header-container">Mistle Library</h3><div class="refresh-rate-container">1 hour</div><button class="availability-toggle-button-container"></button><div id="mistle-library-header-icon-container" class="header-icon-container"></div><div id="mistle-library-catalog-container" class="library-catalog-container smooth-scroll">
+                        <button id="heart-of-darkness-book-option-container" class="book-option-button-container"></button>`
+                    })
+                },
+                {
                     name: "Youth Build Library",
                     marker: L.marker([38.931320, -77.036810], {
-                        icon: LittleFreeDigitalLibraryIconMap[3].icon
+                        icon: LittleFreeDigitalLibraryIconMap[4].icon
                     }),
                     popup: L.popup([38.931320, -77.036810], {
-                        content: `<h3 id="youth-build-library-header-container" class="header-container">Youth Build Library</h3><div id="youth-build-library-header-icon-container" class="header-icon-container"></div><div id="youth-build-library-catalog-container" class="library-catalog-container smooth-scroll">
+                        content: `<h3 id="youth-build-library-header-container" class="header-container">Youth Build Library</h3><div class="refresh-rate-container">1 hour</div><button class="availability-toggle-button-container"></button><div id="youth-build-library-header-icon-container" class="header-icon-container"></div><div id="youth-build-library-catalog-container" class="library-catalog-container smooth-scroll">
                         <button id="the-false-prophet-book-option-container" class="book-option-button-container"></button>
                         <button id="el-viento-travieso-book-option-container" class="book-option-button-container"></button>
                         <button id="bayes-theorem-a-visual-intro-book-option-container" class="book-option-button-container"></button>
@@ -276,6 +292,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-because-of-sex-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Because of Sex'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read?title=BecauseOfSex&type=book";
+                        }, 1500);
                     });
                 });
                 
@@ -289,6 +309,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById("check-out-the-house-of-scorpion-button-container").addEventListener("click", function(){
                         console.log("Check Out 'The House of the Scorpion'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read?title=HouseOfTheScorpion&type=book";
+                        }, 1500);
                     });
                 });
                 
@@ -301,6 +325,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById("check-out-the-nazi-seizure-of-power-button-container").addEventListener("click", function(){
                         console.log("Check Out 'The Nazi Seizure of Power'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read?title=TheNaziSeizureOfPower&type=book";
+                        }, 1500);
                     });
                 });
                 
@@ -329,7 +357,11 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     });
                     
                     document.getElementById("return-the-book-of-forgiving-button-container").addEventListener("click", function(){
-                        console.log("Return 'The Book of Forgiving'");
+                        console.log("Check out 'The Book of Forgiving'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read?title=TheBookOfForgiving&type=book";
+                        }, 1500);
                     });
                 });
                 
@@ -341,7 +373,11 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     });
                     
                     document.getElementById("return-l4yer-cake-button-container").addEventListener("click", function(){
-                        console.log("Return 'L4yer Cake'");
+                        console.log("Check out 'L4yer Cake'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
 
                 });
@@ -368,6 +404,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById("check-out-from-farmland-to-streetlevel-book-1-button-container").addEventListener("click", function(){
                         console.log("Check Out 'Farmland to Streetlevel'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -392,6 +432,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-father-of-the-bride-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Father of the Bride'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -404,6 +448,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-key-west-connection-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Key West Connection'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -416,6 +464,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-critique-of-pure-reason-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Critique of Pure Reason'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -428,6 +480,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-time-and-the-other-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Time and the Other'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -440,6 +496,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-stop-dressing-your-six-year-old-like-a-skank-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Stop Dressing Your Six Year Old Like A Skank'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -452,6 +512,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-the-theatre-of-the-absurd-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'The Theatre of the Absurd'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -464,6 +528,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-on-the-plurality-of-worlds-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'On the Plurality of Worlds'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -476,6 +544,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-a-history-of-the-modern-middle-east-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'A History of the Modern Middle East'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -488,6 +560,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-total-immersion-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Total Immersion'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -500,6 +576,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-stealth-of-nations-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Stealth of Nations'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -512,6 +592,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-extreme-ownership-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Extreme Ownership'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -524,6 +608,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-the-house-on-mango-street-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'The House on Mango Street'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -536,6 +624,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-guardians-of-gahoole-capture-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Guardians of Ga hoole: Capture'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -548,6 +640,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-dynamics-of-faith-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Dynamics of Faith'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -560,6 +656,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-miss-emily-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Miss Emily'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -572,6 +672,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-desert-queen-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Desert Queen'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -584,6 +688,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-a-woman-in-arabia-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'A Woman In Arabia'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -596,6 +704,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-the-black-country-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'The Black Country'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -608,6 +720,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-the-logical-basis-of-metaphysics-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'The Logical Basis of Metaphysics'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -620,6 +736,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-the-devils-workshop-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'The Devils Workshop'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -632,6 +752,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-mauds-line-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'Mauds Line'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -644,6 +768,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById('check-out-the-curly-pyjama-letters-book-button-container').addEventListener("click", function(){
                         console.log("Check Out 'The Curly Pyjama Letters'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                 
@@ -653,10 +781,37 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                 document.getElementById("member-options-container").innerHTML = "<h3>The Little Free Digital Library</h3><p>Hello World! Click on an icon to start.</p><br/><h3>Key</h3><p>📚 Library</p><p>🧑🏽‍🏫 , 🚁Librarian</p>"
             });
             
-            
             LittleFreeDigitalLibrary[3].marker.bindPopup(LittleFreeDigitalLibrary[3].popup);
             
-             LittleFreeDigitalLibrary[3].marker.on("popupopen", function(){
+            LittleFreeDigitalLibrary[3].marker.on("popupopen", function(){
+                document.getElementById("member-options-container").innerHTML = "<h3>Mistle Library</h3><p class='popup-description-container'>Welcome to the Mistle Library in the heart of Mt Pleasant! Feel free to explore, share, and borrow from our collection.</p><p>🚁 Hours</p><h5>05:30PM to 11:00PM</h5><p>📚 Hours</p><h5>Open 24/7</h5>";
+                 
+                document.getElementById("heart-of-darkness-book-option-container").addEventListener("click", function(){
+                    document.getElementById("member-options-container").innerHTML = "<h3>Heart of Darkness</h3><h5>⏰ 15 to 30 min</h5><p class='popup-description-container'>an 1899 novella by Polish-British novelist Joseph Conrad in which the sailor Charles Marlow tells his listeners the story of his assignment as steamer captain for a Belgian company in the African interior.</p><p>1 count</p><button id='heart-of-darkness-digital-link-container' class='view-digital-book-button-container'>Digital</button><button id='check-out-heart-of-darkness-book-button-container' class='add-item-to-order-queue-button-container'>Check Out</button>";
+                    
+                    document.getElementById("heart-of-darkness-digital-link-container").addEventListener("click", function(){
+                        window.open("./media/book/Heart-of-Darkness.pdf", "_blank");
+                    });
+                    
+                    document.getElementById("check-out-heart-of-darkness-book-button-container").addEventListener("click", function(){
+                        console.log("Check Out 'Heart of Darkness'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
+                    });
+
+                    })
+                });
+
+            
+            LittleFreeDigitalLibrary[3].marker.on("popupclose", function(){
+                document.getElementById("member-options-container").innerHTML = "<h3>The Little Free Digital Library</h3><p>Hello World! Click on an icon to start.</p><br/><h3>Key</h3><p>📚 Library</p><p>🧑🏽‍🏫 , 🚁Librarian</p>"
+            });
+
+             LittleFreeDigitalLibrary[4].marker.bindPopup(LittleFreeDigitalLibrary[4].popup);
+            
+             LittleFreeDigitalLibrary[4].marker.on("popupopen", function(){
                 document.getElementById("member-options-container").innerHTML = "<h3>Youth Build Library</h3><p class='popup-description-container'>Welcome to the Youth Build Library of the DC International School in Mt Pleasant! Feel free to explore, share, and borrow from my collection.</p><p>🚁 Hours</p><h5>05:30PM to 11:00PM</h5><p>📚 Hours</p><h5>Open 24/7</h5>";
                  
                 document.getElementById("the-false-prophet-book-option-container").addEventListener("click", function(){
@@ -668,6 +823,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById("check-out-the-false-prophet-book-button-container").addEventListener("click", function(){
                         console.log("Check Out 'The False Prophet'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                  
@@ -680,6 +839,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById("check-out-the-false-prophet-book-button-container").addEventListener("click", function(){
                         console.log("Check Out 'El Viento Travieso'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                  
@@ -692,6 +855,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById("check-out-bayes-theorem-a-visual-intro-book-button-container").addEventListener("click", function(){
                         console.log("Check Out 'Bayes Theorem: A Visual Introduciton'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                  
@@ -704,6 +871,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById("check-out-american-sniper-book-button-container").addEventListener("click", function(){
                         console.log("Check Out 'American Sniper'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                  
@@ -716,6 +887,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById("check-out-the-future-of-an-illusion-book-button-container").addEventListener("click", function(){
                         console.log("Check Out 'The Future of an Illusion'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                  
@@ -728,6 +903,10 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById("check-out-communities-book-button-container").addEventListener("click", function(){
                         console.log("Check Out 'Communities'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                  
@@ -740,20 +919,25 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                     
                     document.getElementById("check-out-jacobin-mag-summer-2023-book-button-container").addEventListener("click", function(){
                         console.log("Check Out 'Jacobin Mag Summer 2023'");
+                        this.textContent = "O"
+                        setTimeout(function(){
+                            window.location.href = "./read";
+                        }, 1500);
                     });
                 });
                  
                 
              });
             
-            LittleFreeDigitalLibrary[3].marker.on("popupclose", function(){
+            LittleFreeDigitalLibrary[4].marker.on("popupclose", function(){
                 document.getElementById("member-options-container").innerHTML = "<h3>The Little Free Digital Library</h3><p>Hello World! Click on an icon to start.</p><br/><h3>Key</h3><p>📚 Library</p><p>🧑🏽‍🏫 , 🚁Librarian</p>"
             });
             
-            LittleFreeDigitalLibrary[0].marker.addTo(map);
+            //LittleFreeDigitalLibrary[0].marker.addTo(map);
             LittleFreeDigitalLibrary[1].marker.addTo(map);
             LittleFreeDigitalLibrary[2].marker.addTo(map);
-            LittleFreeDigitalLibrary[3].marker.addTo(map);
+            //LittleFreeDigitalLibrary[3].marker.addTo(map);
+            LittleFreeDigitalLibrary[4].marker.addTo(map);
             
             var maidenPop = [
                 false,
@@ -777,8 +961,8 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                 window.open("./add-new-library", "_blank");
             });
             
-            document.getElementById("add-new-librarian-page-button-container").addEventListener("click", function(){
-                window.open("./add-new-librarian", "_blank");
+            document.getElementById("add-new-item-page-button-container").addEventListener("click", function(){
+                window.open("./add-new-item", "_blank");
             });
             
             document.getElementById("vision-page-button-container").addEventListener("click", function(){
@@ -787,6 +971,8 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             
             document.getElementById("user-access-layer-container").style.display = "none";
             document.getElementById("user-access-layer-container").style.zIndex = "-1";
+            
+            
         }
         
         var libraryMenuIsVisible = false;
@@ -990,7 +1176,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             //attachButtonHandlers();
             setTimeout(function(){
                 initMap()
-            }, 9500);
+            }, 5900);
         });
 
     </script>

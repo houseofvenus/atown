@@ -1,0 +1,123 @@
+/*
+
+ADD NEW CONTENT
+
+Styling for the "Add New Book or Film" page of The Little Free Digital Library 
+current version: 0.5.c
+author: Patrice-Morgan
+loaded by: add-new-item.html
+
+*/
+
+* {
+    font-family: "Braah One", sans-serif;
+}
+
+.add-map-node-stage-container{
+    width: 500px;
+    height: auto;
+    display: block;
+    margin: 3% auto 0 auto;
+}
+
+.stage-title-container{
+    width: 100%;
+    height: 35px;
+    font-size: 20px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 700;
+    color: white;
+}
+
+#add-item-photo-button-container{
+    width: 75px;
+    height: 75px;
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    line-height: 75px;
+    font-size: 22px;
+    display: block;
+    margin: 50px auto 1% auto;
+    outline: none;
+    text-transform: uppercase;
+}
+
+#stage-01-title-container, #stage-02-title-container{
+    display: none;
+}
+
+#add-item-address-stage-container{
+    display: none;
+}
+
+#item-address-input-container, #item-added-to-this-libary-name-input-container{
+    width: 300px;
+    height: 35px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+#start-over-button-container, #finish-button-container{
+    width: 300px;
+    display: block;
+    margin: 2% auto;
+    cursor: pointer;
+    height: 35px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 35px;
+    background-color: white;
+    color: black;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+#start-over-button-container:hover, #finish-button-container:hover{
+    color: white;
+    background-color: black;
+}
+
+#finish-button-container{
+    display: none;
+}
+
+.photo-input-container{
+    display: none;
+}
+
+.preview-image-container{
+    width: 300px;
+    height: 300px;
+    border: 0;
+    border-radius: 5px;
+    display: none;
+    margin: 15px auto;
+}
+
+.preview-image-content-container{
+    max-width: 100%;
+    max-height: 100%;
+    margin: 2% auto;
+    display: none;
+}
+
+@media only screen and (max-width: 640px){
+    .add-map-node-stage-container{
+        width: 100%;
+        /*height: auto;
+        display: block;*/
+        margin: 6% auto 0 auto;
+    }
+}
+
+/*
+
+
+    📚🎥😆🤣💯
+
+*/

@@ -1,3 +1,32 @@
+.refresh-rate-container{
+    font-family: "Braah One", sans-serif;
+    position: absolute;
+    top: 125px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.availability-toggle-button-container{
+    background-image: url(../media/img/availability-icon.png);
+    background-size: 215% 215%;
+    background-position: center;
+    background-color: white;
+    width: 35px;
+    height: 35px;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    display: block;
+    position: absolute;
+    top: 85px;
+    transition: background-size 0.25s, background-color 0.25s;
+}
+
+.availability-toggle-button-container:hover{
+    background-size: 225% 225%;
+    background-color: aquamarine;
+}
 
 #library-menu-container{
     z-index: -1;
@@ -13,6 +42,62 @@
     border-radius: 15px;
     background-color: white;
     color: black;
+}
+
+#back-to-map-button-container{
+    z-index: 999;
+    display: block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    background-image: url(../media/img/hov-ig-logo.png);
+    background-size: 100% 100%;
+    outline: none;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+
+#vision-page-main-container{
+    font-family: "Braah One", sans-serif;
+    color: white;
+    width: 70%;
+    padding: 2% 5%;
+    min-height: 350px;
+    display: block;
+    margin: 3% auto 0 auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: color 0.25s, background-color 0.25s;
+}
+
+#vision-page-main-container:hover{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+#vision-page-main-container p{
+    margin: 20px auto;
+    /* margin-bottom: 20px; */
+    width: 100%;
+    display: block;
+    text-align: left;
+}
+
+#vision-page-main-container h3{
+    text-align: left;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 #library-menu-button-container{
@@ -54,7 +139,7 @@
     border-bottom: 1px gray solid;
 }
 
-#add-new-librarian-page-button-container{
+#add-new-item-page-button-container{
     border-radius: 0 0 10px 10px;
     border-top: 1px gray solid;
 }
@@ -69,8 +154,9 @@
 }
 
 .header-icon-container{
-    width: 50px;
-    height: 50px;
+    font-family: "Braah One", sans-serif;
+    width: 65px;
+    height: 65px;
     display: block;
     margin: 5% auto;
     border-radius: 50%;
@@ -92,9 +178,18 @@
     background-size: cover;
 }
 
+#mistle-library-header-icon-container{
+    background-image: url(../media/img/mistle-library-icon.png);
+    background-size: cover;
+}
+
 #youth-build-library-icon-container{
     background-image: url(../media/img/katie-library.JPG);
     background-size: cover;
+}
+
+#heart-of-darkness-book-option-container{
+    background-image: url(../media/img/heart-of-darkness-book-cover.png);
 }
 
 #the-false-prophet-book-option-container{
@@ -621,7 +716,43 @@
 #return-to-map-button-container:hover, #start-book-return-button-container:hover{
     font-size: 24px;
 }
-        
+
+.portal-button-container{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 3%;
+    cursor: pointer;
+    box-shadow: none;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: box-shadow 0.25s;
+    border: 0;
+    outline: none;
+}
+
+.portal-button-container:hover{
+    box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.95);
+}
+
+#film-archive-portal-button-container{
+    background-image: url(../media/img/tiktok-texture.png);
+    left: 3%;
+}
+
+#book-archive-portal-button-container{
+    background-image: url(../media/img/tiktok-texture.png);
+    left: 3%;
+}
+
+#instagram-portal-button-container{
+    background-image: url(../media/img/instagram-texture.png);
+    right: 3%;
+}
+
+
 @media only screen and (max-width: 640px){
     #return-book-header-container {
         margin-top: 50px;
@@ -687,6 +818,11 @@
         margin-left: 0;
         border: 0;
         border-radius: 0;
+    }
+
+    
+    #vision-page-main-container{
+        width: 100%;
     }
 
 }

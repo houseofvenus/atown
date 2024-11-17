@@ -1,0 +1,7 @@
+DARIA is an application that leverages the PARK to protect neighborhoods against
+domestic terrorism and gun violence
+
+The PARK is a network of drones akin to how Uber is a network of cars
+Drone owners lend their drones to the network to complete certain tasks for which they are rewarded
+
+Members who have fully charged their drone may connect it to the PARK where it will be queed to complee whatever tasks are available that can be completed using the corresponding hardware
